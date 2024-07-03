@@ -22,46 +22,455 @@
 </head>
 <body>
     
-   <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+   <!-- Navbar start -->
+   <header>
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">Navbar</a>
+
+                      <!-- Mobile button toggle -->
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+
+
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Services</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Projects</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Articles</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Galary</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                          </li>
+                        </ul>
+
+                        <div class="searching-products">
+                            <button>Search Project</button>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+             </div>
           </div>
+       </div>
+   </header>
+    <!-- Navbar end -->
+     
+
+  <!-- Banner section start -->
+      <section class="banner-section">
+          <div class="container">
+            <div class="banner-poster">
+              <div class="row">
+                <div class="col-lg-6 col-xl-6">
+                      <h1>Home Improvement made easy</h1>
+
+                      <div class="form-field">
+                        <form action="">
+                            <input type="text" class="searching-form" name="search" placeholder="I'm Looking for....">
+                            <button class="btn-search">Search</button>
+                        </form>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6 col-xl-6">
+                    <div class="img-container">
+                       <img src="./asset/images/banner-image.png" alt="">
+                    </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+      </section>
+  <!-- Banner section end -->
+
+
+  <!-- About section start -->
+  <section class="about-section">
+     <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-xl-6">
+                <div class="">
+                   <img src="./asset/images/about-image.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-6">
+               <div class="about-info">
+                  <h1>Why Danpite ?</h1>
+                  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores ullam ut facere inventore sequi esse, tempore rerum ipsam eligendi totam rem consectetur assumenda harum. Vero repellat facere laudantium saepe a! Itaque, voluptatem? Commodi voluptas harum vitae accusamus placeat pariatur praesentium corporis ipsam optio. Laboriosam animi, voluptate laborum quisquam ea adipisci.</p>
+
+                  <ul>
+                     <li>1000+ verified, trusted & reliable pros</li>
+                     <li>Find pros in 200+ home services</li>
+                     <li>Compare quotes easily</li>
+                     <li>Speak with a pro directly</li>
+                     <li>Book emergency services</li>
+                  </ul>
+
+                  <button class="btn-join">Join Us</button>
+               </div>
+            </div>
         </div>
-      </nav>
+     </div>
+  </section>
+  <!-- About section start -->
 
 
-      
+  <!-- Category section start -->
+   <section class="category-section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+                <div class="category-details">
+                    <h1>Service Category</h1>
+
+                    <div class="category-list">
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                        <div class="category-wise">
+                            <img src="./asset/images/air.png" alt="">
+                            <h5>Aircon Services</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </div>
+   </section>
+  <!-- Category section end -->
+
+
+  <!-- service section start -->
+    <section class="service-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="service-container">
+                      <h1>See Our Services</h1>
+
+                      <div class="service-list">
+                          <div class="service-details">
+                              <img src="./asset/images/services.jpg" alt="">
+
+                              <div class="service-content">
+                                  <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                  <div class="star-ratings">
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                  </div>
+
+                                  <div class="action-service">
+                                       <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                       <button class="chat-btn">Chat Now</button>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="service-details">
+                            <img src="./asset/images/services.jpg" alt="">
+
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
+
+                                <div class="action-service">
+                                     <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                     <button class="chat-btn">Chat Now</button>
+                                </div>
+                            </div>
+                         </div>
+
+                          <div class="service-details">
+                              <img src="./asset/images/services.jpg" alt="">
+
+                              <div class="service-content">
+                                  <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                  <div class="star-ratings">
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                      <i class='bx bxs-star' ></i>
+                                  </div>
+
+                                  <div class="action-service">
+                                      <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                      <button class="chat-btn">Chat Now</button>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="service-details">
+                            <img src="./asset/images/services.jpg" alt="">
+
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
+
+                                <div class="action-service">
+                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                    <button class="chat-btn">Chat Now</button>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="service-details">
+                            <img src="./asset/images/services.jpg" alt="">
+
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
+
+                                <div class="action-service">
+                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                    <button class="chat-btn">Chat Now</button>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="service-details">
+                            <img src="./asset/images/services.jpg" alt="">
+
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
+
+                                <div class="action-service">
+                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                    <button class="chat-btn">Chat Now</button>
+                                </div>
+                            </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+  <!-- service section start -->
+
+
+  <!-- pricelist section start -->
+    <section class="pricelist_section">
+      <div class="container">
+        <div class="row">
+            <div class="price_head">
+                 <h1>Our Price List</h1>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-lg-4">
+                <div class="main-price-list">
+                   <div class="price-headlist" style="background-color: #FCCA13;">
+                       <h3>Basic</h3>
+                       <p>Nippon Matex White Entry Level</p>
+                   </div>
+
+                   <div class="price-list-menu">
+                      <ul>
+                        <li>$ 280 / rome</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                        <li>2Rm HDB - $599</li>
+                    </ul>
+                   </div>
+
+                    <div class="text-center">
+                        <button class="price-btn" style="background-color: #FCCA13;">get best price</button> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="main-price-list">
+                 <div class="price-headlist" style="background-color: #4DBDBE;">
+                     <h3>Basic</h3>
+                     <p>Nippon Matex White Entry Level</p>
+                 </div>
+
+                 <div class="price-list-menu">
+                    <ul>
+                      <li>$ 280 / rome</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                      <li>2Rm HDB - $599</li>
+                  </ul>
+                 </div>
+
+                  <div class="text-center">
+                      <button class="price-btn" style="background-color: #4DBDBE;">get best price</button> 
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="main-price-list">
+               <div class="price-headlist" style="background-color: #3DB7E8;">
+                   <h3>Basic</h3>
+                   <p>Nippon Matex White Entry Level</p>
+               </div>
+
+               <div class="price-list-menu">
+                  <ul>
+                    <li>$ 280 / rome</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                </ul>
+               </div>
+
+                <div class="text-center">
+                    <button class="price-btn" style="background-color: #3DB7E8;">get best price</button> 
+                </div>
+            </div>
+        </div>
+         </div>
+      </div>
+    </section>
+  <!-- pricelist section start -->
+
+
+  <!-- pro-service section start -->
+     <section class="pro-service-section">
+        <div class="container">
+            <div class="pro-service-container">
+                  <div class="service-images">
+                      <img src="./asset/images/paint-house.jpg" alt="">
+                  </div>
+
+                  <div class="professional-service">
+                      <h5>Dependable & Sincere Company</h5>
+                      <h1>Professional Reovation services & painting services in singapore</h1>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, doloribus neque iure exercitationem nam temporibus tenetur necessitatibus ea perspiciatis eius repellendus atque id dignissimos soluta quos esse ipsum sit est error cupiditate veniam dolor consequuntur suscipit. Tempore id eos distinctio voluptates tempora iusto officiis, eaque ullam eveniet, necessitatibus reprehenderit adipisci ex enim exercitationem. Quo quidem ab suscipit eligendi eum soluta.</p>
+                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid quae quam fuga laboriosam delectus vitae, officiis ipsam sit animi iure iusto dolor minus a exercitationem aut corrupti aperiam consequuntur quod aliquam odit provident reprehenderit quaerat. Quod reprehenderit fuga eum obcaecati nemo vel suscipit excepturi praesentium. Soluta voluptas accusamus at quo?</p>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius vel harum dolores molestiae rerum, dolorum repellat, quaerat laboriosam, at sequi soluta quibusdam ad nesciunt aliquid placeat similique facere pariatur fugit?</p>
+
+                      <button class="btn-watch">Watch Video</button>
+                  </div>
+            </div>
+        </div>
+     </section>
+  <!-- pro-service section end -->
+
+
+  <!-- Projects section start -->
+     <section class="project-section">
+        <div class="container">
+            <div class="row">
+                <div class="project-headtitle">
+                   <h1>Awesome Project Could Inspire You</h1>
+                   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem atque nostrum quos. In, voluptatum maiores? In fugiat laboriosam odit qui harum molestiae possimus quod aut!</p>
+
+                   <div class="project-galary">
+                      <a href="#"><img src="./asset/images/project1.jpg" alt=""></a>
+                      <a href="#"><img src="./asset/images/project2.jpg" alt=""></a>
+                      <a href="#"><img src="./asset/images/project3.jpg" alt=""></a>
+                      <a href="#"><img src="./asset/images/project4.jpg" alt=""></a>
+                      <a href="#"><img src="./asset/images/project5.jpg" alt=""></a>
+                      <a href="#"><img src="./asset/images/project6.jpg" alt=""></a>
+                   </div>
+                </div>
+            </div>
+        </div>
+     </section>
+  <!-- Projects section end -->
+
+
 
     <!-- Bootstrap CDN Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
