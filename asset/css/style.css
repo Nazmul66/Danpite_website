@@ -455,8 +455,14 @@ a{
     margin-bottom: 40px;
 }
 .main-price-list {
-    border: 1px solid #d5d5d5;
+    border: 1px solid #e5e5e5;
     border-radius: 12px;
+
+    transition: all 0.3s ease-in-out;
+}
+.main-price-list:hover{
+    transform: translateY(-25px);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 .main-price-list .price-headlist{
     padding: 40px;
