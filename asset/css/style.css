@@ -39,13 +39,37 @@ a{
     margin-left: 20px;
 }
 .searching-products button{
-    background: #23B14D;
-    color: #FFF;
-    border: none;
+    position: relative;
+    border: 2px solid #23B14D;
+    background: #FFF;
+    color: #1a1a1a;
     font-size: 16px;
     font-weight: 700;
     padding: 12px 24px;
     border-radius: 4px;
+    z-index: 5;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.searching-products button::before{
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(40deg);
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.75);
+    transition: all 0.3s ease-in-out;
+}
+.searching-products button:hover{
+    border: 2px solid #23B14D;
+    background: #23B14D;
+    color: #FFF;
+}
+.searching-products button:hover::before{
+    left: 100%;
 }
 
 
@@ -92,7 +116,14 @@ a{
     color: #FFF;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
 }
+.form-field .btn-search:hover{
+   box-shadow: 0 0 20px rgba(35, 177, 77, 0.5);
+}
+
 .img-container{
     position: absolute;
     top: 0;
@@ -171,9 +202,17 @@ a{
     font-weight: 600;
     padding: 10px 30px;
     border: none;
-    background-color: #F8B101;
-    color: #000;
+    background-color: #23B14D;
+    color: #FFF;
+    border: 2px solid #FFF;
     margin-top: 28px;
+    border-radius: 6px;
+    transition:  all 0.3s ease-in-out;
+}
+.btn-join:hover{
+    background-color: #FFF;
+    color: #23B14D;
+    border: 2px solid #23B14D;
 }
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
@@ -302,12 +341,12 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    background-color: #F4F4F4;
     padding: 20px;
 }
 .service-list .service-details{
     background: #fff;
     border-radius: 12px;
+    background-color: #F4F4F4;
 }
 .service-list .service-details img{
     border-top-right-radius: 12px;
@@ -348,9 +387,16 @@ a{
 .service-content .action-service .chat-btn{
     background-color: #198652;
     color: #fff;
-    border: none;
+    border: 2px solid #FFF;
     border-radius: 8px;
     padding: 8px 18px;
+    transition: all 0.3s ease-in-out;
+}
+.service-content .action-service .chat-btn:hover{
+    background-color: #FFF;
+    color: #198652;
+    border: 2px solid #198652;
+    font-weight: 600;
 }
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
@@ -442,13 +488,67 @@ a{
     font-weight: 600;
     color: #1a1a1a;
 }
+.yellow-color{
+    background-color: #FCCA13;
+}
+.sky-color{
+    background-color: #4DBDBE;
+}
+.navy-color{
+    background-color: #3DB7E8;
+}
 .price-btn{
-    color: #fff;
-    border: none;
-    padding: 6px 18px;
-    text-transform: uppercase;
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0 18px;
     border-radius: 6px;
     margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.price-btn:hover{
+    background-color: #329366;
+}
+.price-btn .bxl-whatsapp{
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    font-size: 28px;
+    transition: all 0.3s ease-in-out;
+}
+.price-btn:hover .bxl-whatsapp{
+    position: absolute;
+    width: 100%;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+}
+.price-btn span{
+    position: absolute;
+    width: 100%;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+.price-btn:hover span{
+    position: absolute;
+    width: 100%;
+    top:  0%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 16px;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
@@ -517,13 +617,18 @@ a{
 }
 .professional-service .btn-watch{
     background: #23B14D;
-    border: none;
+    border: 2px solid #23B14D;
     color: #FFF;
     font-weight: 700;
     padding: 12px 22px;
     border-radius: 4px;
+    transition: all 0.3s ease-in-out;
 }
-
+.professional-service .btn-watch:hover{
+    background: #FFF;
+    border: 2px solid #23B14D;
+    color: #23B14D;  
+}
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
     .pro-service-section {
@@ -625,7 +730,7 @@ a{
 
 }
 .project-headtitle{
-    background-color: #FFF9E2;
+    /* background-color: #FFF9E2; */
     padding: 40px;
 }
 .project-headtitle h1{
@@ -977,10 +1082,18 @@ a{
     padding: 12px 50px;
     font-size: 18px;
     color: #FFF;
+    font-weight: 600;
     background-color: #33C36C;
-    border: none;
+    border: 2px solid #33C36C;
+    /* border: none; */
     border-radius: 50px;
     margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+.contact-btn-submit:hover{
+    color: #33C36C;
+    background-color: #FFF;
+    border: 2px solid #33C36C;
 }
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
@@ -1001,10 +1114,10 @@ a{
 ************************************************/
 footer{
     padding: 5rem 0;
+    background: linear-gradient(111deg, rgba(18,134,195,1) 0%, rgba(1,207,161,1) 66%);
 }
 .main-footer{
     padding: 30px 50px;
-    background: linear-gradient(111deg, rgba(18,134,195,1) 0%, rgba(1,207,161,1) 66%);
 }
 .widget-1{
     
@@ -1041,7 +1154,7 @@ footer{
     }
     .main-footer {
         padding: 30px;
-        background: transparent;
+        /* background: transparent; */
     }
     .widget-1 p {
         margin-bottom: 28px;

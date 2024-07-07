@@ -18,6 +18,12 @@
      <link rel="stylesheet" href="./plugin/css/owl.carousel.min.css">
      <link rel="stylesheet" href="./plugin/css/owl.theme.default.min.css">
 
+    <!-- AOS CDN Link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Anime CSS Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!-- Bootstrap CDN Link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -78,7 +84,7 @@
           <div class="container">
             <div class="banner-poster">
               <div class="row">
-                <div class="col-lg-6 col-xl-6">
+                <div class="col-lg-6 col-xl-6" data-aos="fade-right" data-aos-duration="1500">
                       <h1>Home Improvement made easy</h1>
 
                       <div class="form-field">
@@ -89,7 +95,7 @@
                       </div>
                   </div>
 
-                  <div class="col-lg-6 col-xl-6">
+                  <div class="col-lg-6 col-xl-6" data-aos="fade-left" data-aos-duration="1500">
                     <div class="img-container">
                        <img src="./asset/images/banner-image.png" alt="">
                     </div>
@@ -105,13 +111,13 @@
   <section class="about-section">
      <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 col-xl-6 order-1 order-lg-0">
+            <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
                 <div class="about-image">
                    <img src="./asset/images/about-image.jpg" alt="">
                 </div>
             </div>
 
-            <div class="col-lg-6 col-xl-6 order-0 order-lg-1">
+            <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
                <div class="about-info">
                   <h1>Why Danpite ?</h1>
                   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores ullam ut facere inventore sequi esse, tempore rerum ipsam eligendi totam rem consectetur assumenda harum. Vero repellat facere laudantium saepe a! Itaque, voluptatem? Commodi voluptas harum vitae accusamus placeat pariatur praesentium corporis ipsam optio. Laboriosam animi, voluptate laborum quisquam ea adipisci.</p>
@@ -141,7 +147,7 @@
                 <div class="category-details">
                     <h1>Service Category</h1>
 
-                    <div class="category-list">
+                    <div class="category-list" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
                         <div class="category-wise">
                             <img src="./asset/images/air.png" alt="">
                             <h5>Aircon Services</h5>
@@ -208,7 +214,7 @@
                       <h1>See Our Services</h1>
 
                       <div class="service-list">
-                          <div class="service-details">
+                          <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
                               <img src="./asset/images/services.jpg" alt="">
 
                               <div class="service-content">
@@ -228,7 +234,7 @@
                               </div>
                           </div>
 
-                          <div class="service-details">
+                          <div class="service-details" data-aos="fade-down" data-aos-duration="1500">
                             <img src="./asset/images/services.jpg" alt="">
 
                             <div class="service-content">
@@ -248,7 +254,7 @@
                             </div>
                          </div>
 
-                          <div class="service-details">
+                          <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
                               <img src="./asset/images/services.jpg" alt="">
 
                               <div class="service-content">
@@ -268,7 +274,7 @@
                               </div>
                           </div>
 
-                          <div class="service-details">
+                          <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
                             <img src="./asset/images/services.jpg" alt="">
 
                             <div class="service-content">
@@ -288,7 +294,7 @@
                             </div>
                           </div>
 
-                          <div class="service-details">
+                          <div class="service-details" data-aos="fade-up" data-aos-duration="1500">
                             <img src="./asset/images/services.jpg" alt="">
 
                             <div class="service-content">
@@ -307,7 +313,8 @@
                                 </div>
                             </div>
                           </div>
-                          <div class="service-details">
+
+                          <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
                             <img src="./asset/images/services.jpg" alt="">
 
                             <div class="service-content">
@@ -346,7 +353,7 @@
         </div>
 
          <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="zoom-out-right" data-aos-duration="1500">
                 <div class="main-price-list">
                    <div class="price-headlist" style="background-color: #FCCA13;">
                        <h3>Basic</h3>
@@ -367,12 +374,15 @@
                    </div>
 
                     <div class="text-center">
-                        <button class="price-btn" style="background-color: #FCCA13;">get best price</button> 
+                        <a href="" class="price-btn yellow-color" >
+                            <i class='bx bxl-whatsapp'></i>
+                            <span>get best price</span>
+                        </a> 
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="zoom-out-up" data-aos-duration="1500">
               <div class="main-price-list">
                  <div class="price-headlist" style="background-color: #4DBDBE;">
                      <h3>Basic</h3>
@@ -392,13 +402,16 @@
                   </ul>
                  </div>
 
-                  <div class="text-center">
-                      <button class="price-btn" style="background-color: #4DBDBE;">get best price</button> 
-                  </div>
+                <div class="text-center">
+                    <a href="" class="price-btn sky-color" >
+                        <i class='bx bxl-whatsapp'></i>
+                        <span>get best price</span>
+                    </a> 
+                </div>
               </div>
           </div>
 
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-aos="zoom-out-left" data-aos-duration="1500">
             <div class="main-price-list">
                <div class="price-headlist" style="background-color: #3DB7E8;">
                    <h3>Basic</h3>
@@ -419,7 +432,10 @@
                </div>
 
                 <div class="text-center">
-                    <button class="price-btn" style="background-color: #3DB7E8;">get best price</button> 
+                    <a href="" class="price-btn navy-color" >
+                        <i class='bx bxl-whatsapp'></i>
+                        <span>get best price</span>
+                    </a> 
                 </div>
             </div>
         </div>
@@ -433,11 +449,11 @@
      <section class="pro-service-section">
         <div class="container">
             <div class="pro-service-container">
-                  <div class="service-images">
+                  <div class="service-images" data-aos="fade-down-right" data-aos-duration="1500">
                       <img src="./asset/images/paint-house.jpg" alt="">
                   </div>
 
-                  <div class="professional-service">
+                  <div class="professional-service" data-aos="fade-down-left" data-aos-duration="1500">
                       <h5>Dependable & Sincere Company</h5>
                       <h1>Professional Reovation services & painting services in singapore</h1>
                       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, doloribus neque iure exercitationem nam temporibus tenetur necessitatibus ea perspiciatis eius repellendus atque id dignissimos soluta quos esse ipsum sit est error cupiditate veniam dolor consequuntur suscipit. Tempore id eos distinctio voluptates tempora iusto officiis, eaque ullam eveniet, necessitatibus reprehenderit adipisci ex enim exercitationem. Quo quidem ab suscipit eligendi eum soluta.</p>
@@ -460,7 +476,7 @@
                    <h1>Awesome Project Could Inspire You</h1>
                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem atque nostrum quos. In, voluptatum maiores? In fugiat laboriosam odit qui harum molestiae possimus quod aut!</p>
 
-                   <div class="project-galary">
+                   <div class="project-galary" data-aos="zoom-in" data-aos-duration="1500">
                       <a href="#"><img src="./asset/images/project1.jpg" alt=""></a>
                       <a href="#"><img src="./asset/images/project2.jpg" alt=""></a>
                       <a href="#"><img src="./asset/images/project3.jpg" alt=""></a>
@@ -483,7 +499,7 @@
                     <h1>Because We care about your safety...</h1>
                 </div>
               
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="flip-left" data-aos-duration="1500">
                    <div class="safety-service-container">
                         <div class="safety-service">
                             <img src="./asset/images/mask.png" alt="">
@@ -507,7 +523,7 @@
                    </div>
                 </div>
 
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1500">
                     <div class="youtube-video">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/3VJbltbRNP0?si=g4xqz9MCof8anWOi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
@@ -539,7 +555,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="logo-container">
+                        <div class="logo-container" data-aos="zoom-in-left" data-aos-duration="1500">
                             <h1>We can supply and use any below brand of paints of client choice.</h1>
 
                             <div class="owl-carousel owl-theme" id="logo-slider">
@@ -571,7 +587,7 @@
         <section class="review-section">
             <div class="container">
                 <div class="row">
-                    <div class="review-container">
+                    <div class="review-container" data-aos="zoom-in-right" data-aos-duration="2000">
                         <h1>Client's Review</h1>
 
                         <div class="owl-carousel owl-theme" id="review-slider">
@@ -605,13 +621,13 @@
        <section class="contact-section">
           <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="2000">
                    <div class="contact-img">
                        <img src="./asset/images/contact-image.png" alt="">
                    </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="2000">
                     <div class="contact-form">
                         <h6>Free Quote</h6>
                         <h1>Get A Free Quote</h1>
@@ -721,12 +737,18 @@
     <!-- owl Carousel Link -->
      <script src="./plugin/js/owl.carousel.min.js"></script>
 
+    <!-- AOS CDN Link -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <!-- Bootstrap CDN Link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- Custom JS Link -->
     <link rel="stylesheet" href="./asset/js/main.js">
 
+    <script>
+        AOS.init();
+    </script>
 
 <script> 
         $('#logo-slider').owlCarousel({
