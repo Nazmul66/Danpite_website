@@ -38,152 +38,132 @@
 
 <!-- About section start -->
 <section class="about-section">
-<div class="container">
-  <div class="row align-items-center">
-      <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
-          <div class="about-image">
-             <img src="{{ asset('public/asset/images/about-image.jpg') }}" alt="">
-          </div>
-      </div>
+    <div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
+            <div class="about-image">
+                <img src="{{ asset('public/asset/images/about-image.jpg') }}" alt="">
+            </div>
+        </div>
 
-      <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
-         <div class="about-info">
-            <h1>Why Danpite ?</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores ullam ut facere inventore sequi esse, tempore rerum ipsam eligendi totam rem consectetur assumenda harum. Vero repellat facere laudantium saepe a! Itaque, voluptatem? Commodi voluptas harum vitae accusamus placeat pariatur praesentium corporis ipsam optio. Laboriosam animi, voluptate laborum quisquam ea adipisci.</p>
+        <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
+            <div class="about-info">
+                <h1>Why Danpite ?</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores ullam ut facere inventore sequi esse, tempore rerum ipsam eligendi totam rem consectetur assumenda harum. Vero repellat facere laudantium saepe a! Itaque, voluptatem? Commodi voluptas harum vitae accusamus placeat pariatur praesentium corporis ipsam optio. Laboriosam animi, voluptate laborum quisquam ea adipisci.</p>
 
-            <ul>
-               <li>1000+ verified, trusted & reliable pros</li>
-               <li>Find pros in 200+ home services</li>
-               <li>Compare quotes easily</li>
-               <li>Speak with a pro directly</li>
-               <li>Book emergency services</li>
-            </ul>
+                <ul>
+                <li>1000+ verified, trusted & reliable pros</li>
+                <li>Find pros in 200+ home services</li>
+                <li>Compare quotes easily</li>
+                <li>Speak with a pro directly</li>
+                <li>Book emergency services</li>
+                </ul>
 
-            <button class="btn-join">Join Us</button>
-         </div>
-      </div>
-  </div>
-</div>
+                <button class="btn-join">Join Us</button>
+            </div>
+        </div>
+    </div>
+    </div>
 </section>
 <!-- About section start -->
 
 
 <!-- Category section start -->
 <section class="category-section">
-<div class="container">
-   <div class="row">
-      <div class="col-lg-12">
-          <div class="category-details">
-              <h1>Service Category</h1>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="category-details">
+                <h1>Service Category</h1>
 
-              <div class="category-list" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-                  <div class="category-wise">
-                      <img src="{{ asset('public/asset/images/air.png') }}" alt="">
-                      <h5>Aircon Services</h5>
-                  </div>
-              </div>
-          </div>
-      </div>
-   </div>
-</div>
+                <div class="category-list" data-aos="fade-up" data-aos-duration="2000" data-aos-anchor-placement="center-bottom">
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                    <div class="category-wise">
+                        <img src="{{ asset('public/asset/images/air.png') }}" alt="">
+                        <h5>Aircon Services</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </section>
 <!-- Category section end -->
 
 
 <!-- service section start -->
 <section class="service-section">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="service-container">
-                <h1>See Our Services</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="service-container">
+                    <h1>See Our Services</h1>
 
-                <div class="service-list">
-                    <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
-                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+                    <div class="service-list">
+                        <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
+                            <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
 
-                        <div class="service-content">
-                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                            <div class="star-ratings">
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                            </div>
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
 
-                            <div class="action-service">
-                                 <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                 <button class="chat-btn">Chat Now</button>
+                                <div class="action-service">
+                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                    <button class="chat-btn">Chat Now</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="service-details" data-aos="fade-down" data-aos-duration="1500">
-                      <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                      <div class="service-content">
-                          <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                          <div class="star-ratings">
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                          </div>
-
-                          <div class="action-service">
-                               <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                               <button class="chat-btn">Chat Now</button>
-                          </div>
-                      </div>
-                   </div>
-
-                    <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
+                        <div class="service-details" data-aos="fade-down" data-aos-duration="1500">
                         <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
 
                         <div class="service-content">
@@ -203,126 +183,178 @@
                         </div>
                     </div>
 
-                    <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
-                      <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+                        <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
+                            <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
 
-                      <div class="service-content">
-                          <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                          <div class="star-ratings">
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                          </div>
+                            <div class="service-content">
+                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                                <div class="star-ratings">
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                    <i class='bx bxs-star' ></i>
+                                </div>
 
-                          <div class="action-service">
-                              <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                              <button class="chat-btn">Chat Now</button>
-                          </div>
-                      </div>
+                                <div class="action-service">
+                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                    <button class="chat-btn">Chat Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
+                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+
+                        <div class="service-content">
+                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                            <div class="star-ratings">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                            </div>
+
+                            <div class="action-service">
+                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                <button class="chat-btn">Chat Now</button>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="service-details" data-aos="fade-up" data-aos-duration="1500">
+                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+
+                        <div class="service-content">
+                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                            <div class="star-ratings">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                            </div>
+
+                            <div class="action-service">
+                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                <button class="chat-btn">Chat Now</button>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
+                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+
+                        <div class="service-content">
+                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
+                            <div class="star-ratings">
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                                <i class='bx bxs-star' ></i>
+                            </div>
+
+                            <div class="action-service">
+                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
+                                <button class="chat-btn">Chat Now</button>
+                            </div>
+                        </div>
+                        </div>
+
                     </div>
-
-                    <div class="service-details" data-aos="fade-up" data-aos-duration="1500">
-                      <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                      <div class="service-content">
-                          <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                          <div class="star-ratings">
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                          </div>
-
-                          <div class="action-service">
-                              <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                              <button class="chat-btn">Chat Now</button>
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
-                      <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                      <div class="service-content">
-                          <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                          <div class="star-ratings">
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                              <i class='bx bxs-star' ></i>
-                          </div>
-
-                          <div class="action-service">
-                              <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                              <button class="chat-btn">Chat Now</button>
-                          </div>
-                      </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
 <!-- service section end -->
 
 
 <!-- pricelist section start -->
 <section class="pricelist_section">
-<div class="container">
-  <div class="row">
-      <div class="price_head">
-           <h1>Our Price List</h1>
-      </div>
-  </div>
+    <div class="container">
+    <div class="row">
+        <div class="price_head">
+            <h1>Our Price List</h1>
+        </div>
+    </div>
 
-   <div class="row">
-      <div class="col-lg-4" data-aos="zoom-out-right" data-aos-duration="1500">
-          <div class="main-price-list">
-             <div class="price-headlist" style="background-color: #FCCA13;">
-                 <h3>Basic</h3>
-                 <p>Nippon Matex White Entry Level</p>
-             </div>
+    <div class="row">
+        <div class="col-lg-4" data-aos="zoom-out-right" data-aos-duration="1500">
+            <div class="main-price-list">
+                <div class="price-headlist" style="background-color: #FCCA13;">
+                    <h3>Basic</h3>
+                    <p>Nippon Matex White Entry Level</p>
+                </div>
 
-             <div class="price-list-menu">
+                <div class="price-list-menu">
+                    <ul>
+                    <li>$ 280 / rome</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                </ul>
+                </div>
+
+                <div class="text-center">
+                    <a href="" class="price-btn yellow-color" >
+                        <div class="whatsapp-icon">
+                            <i class='bx bxl-whatsapp'></i>
+                            <label class="chat-text">Let's Chat</label>
+                        </div>
+                        <span>get best price</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4" data-aos="zoom-out-up" data-aos-duration="1500">
+            <div class="main-price-list">
+            <div class="price-headlist" style="background-color: #4DBDBE;">
+                <h3>Basic</h3>
+                <p>Nippon Matex White Entry Level</p>
+            </div>
+
+            <div class="price-list-menu">
                 <ul>
-                  <li>$ 280 / rome</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-                  <li>2Rm HDB - $599</li>
-              </ul>
-             </div>
+                    <li>$ 280 / rome</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                    <li>2Rm HDB - $599</li>
+                </ul>
+            </div>
 
-              <div class="text-center">
-                  <a href="" class="price-btn yellow-color" >
-                      <div class="whatsapp-icon">
-                          <i class='bx bxl-whatsapp'></i>
-                           <label class="chat-text">Let's Chat</label>
-                      </div>
-                      <span>get best price</span>
-                  </a>
-              </div>
-          </div>
-      </div>
+            <div class="text-center">
+                <a href="" class="price-btn sky-color" >
+                    <div class="whatsapp-icon">
+                        <i class='bx bxl-whatsapp'></i>
+                        <label class="chat-text">Let's Chat</label>
+                    </div>
+                    <span>get best price</span>
+                </a>
+            </div>
+            </div>
+        </div>
 
-      <div class="col-lg-4" data-aos="zoom-out-up" data-aos-duration="1500">
+        <div class="col-lg-4" data-aos="zoom-out-left" data-aos-duration="1500">
         <div class="main-price-list">
-           <div class="price-headlist" style="background-color: #4DBDBE;">
-               <h3>Basic</h3>
-               <p>Nippon Matex White Entry Level</p>
-           </div>
+            <div class="price-headlist" style="background-color: #3DB7E8;">
+                <h3>Basic</h3>
+                <p>Nippon Matex White Entry Level</p>
+            </div>
 
-           <div class="price-list-menu">
-              <ul>
+            <div class="price-list-menu">
+                <ul>
                 <li>$ 280 / rome</li>
                 <li>2Rm HDB - $599</li>
                 <li>2Rm HDB - $599</li>
@@ -332,53 +364,21 @@
                 <li>2Rm HDB - $599</li>
                 <li>2Rm HDB - $599</li>
             </ul>
-           </div>
+            </div>
 
-          <div class="text-center">
-              <a href="" class="price-btn sky-color" >
-                  <div class="whatsapp-icon">
-                      <i class='bx bxl-whatsapp'></i>
-                       <label class="chat-text">Let's Chat</label>
-                  </div>
-                  <span>get best price</span>
-              </a>
-          </div>
+            <div class="text-center">
+                <a href="" class="price-btn navy-color" >
+                    <div class="whatsapp-icon">
+                        <i class='bx bxl-whatsapp'></i>
+                        <label class="chat-text">Let's Chat</label>
+                    </div>
+                    <span>get best price</span>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="col-lg-4" data-aos="zoom-out-left" data-aos-duration="1500">
-      <div class="main-price-list">
-         <div class="price-headlist" style="background-color: #3DB7E8;">
-             <h3>Basic</h3>
-             <p>Nippon Matex White Entry Level</p>
-         </div>
-
-         <div class="price-list-menu">
-            <ul>
-              <li>$ 280 / rome</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-              <li>2Rm HDB - $599</li>
-          </ul>
-         </div>
-
-          <div class="text-center">
-              <a href="" class="price-btn navy-color" >
-                  <div class="whatsapp-icon">
-                      <i class='bx bxl-whatsapp'></i>
-                       <label class="chat-text">Let's Chat</label>
-                  </div>
-                  <span>get best price</span>
-              </a>
-          </div>
-      </div>
-  </div>
-   </div>
-</div>
+    </div>
+    </div>
 </section>
 <!-- pricelist section end -->
 
