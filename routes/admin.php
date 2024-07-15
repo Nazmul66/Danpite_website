@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\ProjectController;
+use App\Http\Controllers\Backend\ContactController;
 
 
 //
@@ -43,5 +44,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('project', ProjectController::class)->names('admin.project');
     Route::get('/get-project',[ProjectController::class,'getData'])->name('admin.get-project');
     Route::post('/project/status',[ProjectController::class,'adminProjectStatus'])->name('admin.project.status');
+
+    //____  Contact  ____//
+    Route::resource('contact', ContactController::class)->names('admin.contact');
+    Route::get('/get-contact',[ContactController::class,'getData'])->name('admin.get-contact');
+    Route::post('/contact/status',[ContactController::class,'adminContactStatus'])->name('admin.contact.status');
 });
 

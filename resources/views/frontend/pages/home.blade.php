@@ -571,11 +571,13 @@
                   <h1>Get A Free Quote</h1>
                   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae, ex quod! In laudantium ipsa optio nulla quibusdam id enim molestiae magni accusantium veritatis. Praesentium animi repellendus expedita perferendis asperiores eveniet in quidem assumenda aperiam. Dolore, accusantium? Nulla iure soluta optio.</p>
 
-                  <form action="" method="POST">
+                  <form id="createForm" method="POST">
+                    @csrf
+
                       <div class="row">
                           <div class="col-lg-6">
                               <div class="mb-3">
-                                  <input class="form-control form-control-lg" type="text" name="full_name" id="" placeholder="Your Name">
+                                  <input class="form-control form-control-lg" type="text" name="name" id="" placeholder="Your Name">
                               </div>
                           </div>
 
@@ -588,7 +590,13 @@
 
                       <div class="col-lg-12">
                           <div class="mb-3">
-                              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <input class="form-control form-control-lg" type="email" name="email" id="" placeholder="Your Email">
+                          </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                          <div class="mb-3">
+                              <select class="form-select form-select-lg mb-3" name="service">
                                   <option selected>Open this select menu</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
@@ -599,7 +607,7 @@
 
                       <div class="col-lg-12">
                           <div class="form-floating">
-                              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="note" style="height: 100px"></textarea>
                               <label for="floatingTextarea2">Special Notes</label>
                           </div>
                       </div>
@@ -678,6 +686,44 @@
            }
         }
     })
+
+            // Create Logo
+            $('#createForm').submit(function (e) {
+            e.preventDefault();
+
+            let formData = new FormData(this);
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ route('admin.contact.store') }}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    // console.log(res);
+                    if (res.status === true) {
+                        $('#createForm')[0].reset();
+
+                        swal.fire({
+                            title: "Success",
+                            text: `${res.message}`,
+                            icon: "success"
+                        })
+                    }
+                },
+                error: function (err) {
+                    console.error('Error:', err);
+                    swal.fire({
+                        title: "Failed",
+                        text: "Something Went Wrong !",
+                        icon: "error"
+                    })
+                }
+            });
+        })
 </script>
 
 @endpush
