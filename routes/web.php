@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Backend\AdminController;
 
 Route::get('/', function () {
     return view('frontend.pages.home');
@@ -19,13 +18,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+
+
+
+
+
+
+
 require __DIR__.'/auth.php';
-
-
-//
-
-Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
-
-
-
+require __DIR__.'/admin.php';

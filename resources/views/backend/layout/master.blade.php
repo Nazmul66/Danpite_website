@@ -30,13 +30,12 @@
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
-            <!-- Content -->
 
-
-                  @yield('body-content')
-
-
-            <!-- / Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <!-- Content -->
+                    @yield('body-content')
+                <!-- / Content -->
+            </div>
 
             <!-- Footer -->
               @include('backend.include.footer')

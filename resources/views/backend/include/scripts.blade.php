@@ -3,6 +3,7 @@
 <script src="{{ asset('public/backend/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('public/backend/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('public/backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="{{ asset('public/backend/assets/vendor/js/menu.js') }}"></script>
 <!-- endbuild -->
@@ -18,3 +19,12 @@
 
 
 @stack('custom-script')
+
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>

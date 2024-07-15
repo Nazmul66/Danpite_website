@@ -7,6 +7,8 @@
 
 <meta name="description" content="" />
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
@@ -28,6 +30,8 @@
 
 <link rel="stylesheet" href="{{ asset('public/backend/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
+<link rel="stylesheet" href="{{ asset('public/backend/assets/css/style.css') }}" />
+
 <!-- Page CSS -->
 
 @stack('add-css')
@@ -36,3 +40,5 @@
 <script src="{{ asset('public/backend/assets/vendor/js/helpers.js') }}"></script>
 
 <script src="{{ asset('public/backend/assets/js/config.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
