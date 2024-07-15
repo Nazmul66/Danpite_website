@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\BasicInfoController;
 
 
 //
@@ -64,5 +65,9 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('service', ServiceController::class)->names('admin.service');
     Route::get('/get-service',[ServiceController::class,'getData'])->name('admin.get-service');
     Route::post('/service/status',[ServiceController::class,'adminServiceStatus'])->name('admin.service.status');
+
+
+    //____ BasicInfo  ____//
+    Route::resource('basic-info', BasicInfoController::class)->names('admin.basic-info');
 });
 
