@@ -8,6 +8,8 @@ use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\ProjectController;
 use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\AboutController;
+use App\Http\Controllers\Backend\ServiceController;
 
 
 //
@@ -45,9 +47,22 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/get-project',[ProjectController::class,'getData'])->name('admin.get-project');
     Route::post('/project/status',[ProjectController::class,'adminProjectStatus'])->name('admin.project.status');
 
+
     //____  Contact  ____//
     Route::resource('contact', ContactController::class)->names('admin.contact');
     Route::get('/get-contact',[ContactController::class,'getData'])->name('admin.get-contact');
     Route::post('/contact/status',[ContactController::class,'adminContactStatus'])->name('admin.contact.status');
+
+
+    //____ NOTE About  ____//
+    Route::resource('about', AboutController::class)->names('admin.about');
+    Route::get('/get-about',[AboutController::class,'getData'])->name('admin.get-about');
+    Route::post('/about/status',[AboutController::class,'adminAboutStatus'])->name('admin.about.status');
+
+
+    //____ Service  ____//
+    Route::resource('service', ServiceController::class)->names('admin.service');
+    Route::get('/get-service',[ServiceController::class,'getData'])->name('admin.get-service');
+    Route::post('/service/status',[ServiceController::class,'adminServiceStatus'])->name('admin.service.status');
 });
 
