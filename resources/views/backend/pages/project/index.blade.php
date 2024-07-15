@@ -1,7 +1,7 @@
 @extends('backend.layout.master')
 
 @push('meta-title')
-        Dashboard | Review Section
+        Dashboard | Project Showcase
 @endpush
 
 @push('add-css')
@@ -14,21 +14,20 @@
  <div class="row">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Review Table</h5>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Review</button>
+            <h5>Project Table</h5>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Project</button>
         </div>
 
 
         <div class="card-body">
           <div class="table-responsive text-nowrap">
-            <table class="table table-bordered" id="reviewTables">
+            <table class="table table-bordered" id="projectTables">
               <thead>
                 <tr>
                   <th>#SL.</th>
                   <th>Image</th>
-                  <th>User Name</th>
-                  <th>Ratings</th>
-                  <th>Description</th>
+                  <th>Name</th>
+                  <th>Url</th>
                   <th>status</th>
                   <th>Action</th>
                 </tr>
@@ -50,7 +49,7 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Create New Review</h5>
+            <h5 class="modal-title" id="exampleModalLabel3">Create New Project</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -60,20 +59,20 @@
 
                         <div class="row">
                             <div class="col mb-3">
-                                <label for="name" class="form-label">User Name</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="User name">
+                                <label for="name" class="form-label">Project Name</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Project name">
                             </div>
 
                             <div class="col mb-3">
-                                <label for="review_img" class="form-label">User Image</label>
-                                <input class="form-control" type="file" name="review_img" id="review_img">
+                                <label for="project_img" class="form-label">Project Image</label>
+                                <input class="form-control" type="file" name="project_img" id="project_img">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col mb-3">
-                                <label for="rating" class="form-label">Ratings</label>
-                                <input type="text" id="rating" name="rating" class="form-control" placeholder="Ratings">
+                                <label for="url" class="form-label">Project URL</label>
+                                <input type="text" id="url" name="url" class="form-control" placeholder="Project URL">
                             </div>
 
                             <div class="col mb-3">
@@ -84,11 +83,6 @@
                                     <option value="2">Deactive</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <div class="col">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Message...." rows="3"></textarea>
                         </div>
 
                         <div class="modal-footer">
@@ -107,8 +101,8 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Update Banner</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel3">Update Banner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
@@ -120,13 +114,13 @@
 
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="up_name" class="form-label">User Name</label>
-                            <input type="text" id="up_name" name="name" class="form-control" placeholder="User name">
+                            <label for="up_name" class="form-label">Project Name</label>
+                            <input type="text" id="up_name" name="name" class="form-control" placeholder="Project name">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="review_img" class="form-label">User Image</label>
-                            <input class="form-control" type="file" name="review_img" id="review_img">
+                            <label for="project_img" class="form-label">Project Image</label>
+                            <input class="form-control" type="file" name="project_img" id="project_img">
 
                             <div id="imageShow"></div>
                         </div>
@@ -134,23 +128,18 @@
 
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="up_rating" class="form-label">Ratings</label>
-                            <input type="text" id="up_rating" name="rating" class="form-control" placeholder="Ratings">
+                            <label for="up_url" class="form-label">Project URL</label>
+                            <input type="text" id="up_url" name="url" class="form-control" placeholder="Project URL">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="up_status" class="form-label">Status</label>
+                            <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="up_status" name="status">
                                 <option selected="" disabled value="">Open this select menu</option>
                                 <option value="1">Active</option>
                                 <option value="2">Deactive</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class="col">
-                        <label for="up_description" class="form-label">Description</label>
-                        <textarea class="form-control" id="up_description" name="description" placeholder="Message...." rows="3"></textarea>
                     </div>
 
                     <div class="modal-footer">
@@ -176,13 +165,13 @@
      $(document).ready(function(){
 
         // show all data
-        let reviewTables = $('#reviewTables').DataTable({
+        let projectTables = $('#projectTables').DataTable({
             order: [
                 [0, 'asc']
             ],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.get-review') }}",
+            ajax: "{{ route('admin.get-project') }}",
             // pageLength: 30,
 
             columns: [
@@ -193,16 +182,13 @@
                     searchable: false
                 },
                 {
-                    data: 'review_img'
+                    data: 'project_img'
                 },
                 {
                     data: 'name'
                 },
                 {
-                    data: 'rating'
-                },
-                {
-                    data: 'description'
+                    data: 'url'
                 },
                 {
                     data: 'status'
@@ -223,14 +209,14 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.review.status') }}",
+                url: "{{ route('admin.project.status') }}",
                 data: {
                     // '_token': token,
                     id: id,
                     status: status
                 },
                 success: function (res) {
-                    reviewTables.ajax.reload();
+                    projectTables.ajax.reload();
 
                     if (res.status == 1) {
                         swal.fire(
@@ -253,6 +239,7 @@
             })
         })
 
+
         // Create Banner
         $('#createForm').submit(function (e) {
             e.preventDefault();
@@ -264,7 +251,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ route('admin.review.store') }}",
+                url: "{{ route('admin.project.store') }}",
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
@@ -273,7 +260,7 @@
                     if (res.status === true) {
                         $('#create_Modal').modal('hide');
                         $('#createForm')[0].reset();
-                        reviewTables.ajax.reload();
+                        projectTables.ajax.reload();
 
                         swal.fire({
                             title: "Success",
@@ -293,6 +280,7 @@
             });
         })
 
+
         // Edit Banner
         $(document).on("click", '#editButton', function (e) {
             let id = $(this).attr('data-id');
@@ -303,7 +291,7 @@
                 // headers: {
                 //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 // },
-                url: "{{ url('admin/review') }}/" + id + "/edit",
+                url: "{{ url('admin/project') }}/" + id + "/edit",
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
                 success: function (res) {
@@ -314,11 +302,10 @@
                     $('#up_name').val(data.name);
                     $('#imageShow').html('');
                     $('#imageShow').append(`
-                        <img src={{ asset("`+ data.review_img	 +`") }} alt="" style="width: 75px;">
+                        <img src={{ asset("`+ data.project_img +`") }} alt="" style="width: 75px;">
                     `);
+                    $('#up_url').val(data.url);
                     $('#up_status').val(data.status);
-                    $('#up_rating').val(data.rating);
-                    $('#up_description').val(data.description);
 
                 },
                 error: function (error) {
@@ -341,7 +328,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ url('admin/review') }}/" + id,
+                url: "{{ url('admin/project') }}/" + id,
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
@@ -349,13 +336,13 @@
 
                     swal.fire({
                         title: "Success",
-                        text: "Review Edited",
+                        text: "Project Edited",
                         icon: "success"
                     })
 
                     $('#editModal').modal('hide');
                     $('#updateForm')[0].reset();
-                    reviewTables.ajax.reload();
+                    projectTables.ajax.reload();
                 },
                 error: function (err) {
                     console.error('Error:', err);
@@ -388,7 +375,7 @@
                     $.ajax({
                         type: 'DELETE',
 
-                        url: "{{ url('admin/review') }}/" + id,
+                        url: "{{ url('admin/project') }}/" + id,
                         data: {
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -401,7 +388,7 @@
                                 icon: "success"
                             });
 
-                            reviewTables.ajax.reload();
+                            projectTables.ajax.reload();
                         },
                         error: function (err) {
                             console.log('error')

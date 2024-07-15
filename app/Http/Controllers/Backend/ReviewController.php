@@ -90,7 +90,7 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function adminBannerStatus(Request $request)
+    public function adminReviewStatus(Request $request)
     {
         $id = $request->id;
         $Current_status = $request->status;

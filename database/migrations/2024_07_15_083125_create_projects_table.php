@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('review_img')->nullable();
-            $table->integer('rating');
-            $table->text('description')->nullable();
+            $table->string('project_img')->nullable();
+            $table->string('url')->nullable();
             $table->integer('status')->default(1)->comment('1=active, 0=deactive');
             $table->timestamps();
         });
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('projects');
     }
 };

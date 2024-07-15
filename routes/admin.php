@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\ReviewController;
+use App\Http\Controllers\Backend\ProjectController;
 
 
 //
@@ -36,5 +37,11 @@ Route::group(['prefix' => 'admin'], function(){
     Route::resource('review', ReviewController::class)->names('admin.review');
     Route::get('/get-review',[ReviewController::class,'getData'])->name('admin.get-review');
     Route::post('/review/status',[ReviewController::class,'adminReviewStatus'])->name('admin.review.status');
+
+
+    //____  Project  ____//
+    Route::resource('project', ProjectController::class)->names('admin.project');
+    Route::get('/get-project',[ProjectController::class,'getData'])->name('admin.get-project');
+    Route::post('/project/status',[ProjectController::class,'adminProjectStatus'])->name('admin.project.status');
 });
 
