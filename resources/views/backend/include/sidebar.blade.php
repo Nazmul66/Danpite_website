@@ -76,6 +76,8 @@
       </li>
 
       <!-- Layouts -->
+
+      <!--  Category Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -91,6 +93,8 @@
         </ul>
       </li>
 
+
+      <!--  Logo Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -107,6 +111,7 @@
       </li>
 
 
+      <!--  Banner Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-layout"></i>
@@ -117,6 +122,23 @@
           <li class="menu-item">
             <a href="{{ route('admin.banner.index') }}" class="menu-link">
               <div data-i18n="Without menu">Manage Banner</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <!--  Review Section  -->
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Review</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{ route('admin.review.index') }}" class="menu-link">
+              <div data-i18n="Without menu">Manage Review</div>
             </a>
           </li>
         </ul>
