@@ -17,14 +17,6 @@ class LogoController extends Controller
         return view('backend.pages.logo.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-
-    }
-
     public function getData(Request $request)
     {
         $logos = Logo::all();
@@ -92,7 +84,7 @@ class LogoController extends Controller
 
         $logo->save();
 
-        return response()->json(['message' => 'successfully Category Created', 'status' => true], 200);
+        return response()->json(['message' => 'successfully Logo Created', 'status' => true], 200);
     }
 
     /**
@@ -140,8 +132,12 @@ class LogoController extends Controller
         if( $request->file('logo_img') ){
             $logo_img = $request->file('logo_img');
 
+            if( !is_null($logo->logo_img) && file_exists($logo->logo_img) ){
+                unlink($logo->logo_img);
+             }
+
             $imageName          = microtime('.') . '.' . $logo_img->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/category/';
+            $imagePath          = 'public/backend/image/logo/';
             $logo_img->move($imagePath, $imageName);
 
             $logo->logo_img   = $imagePath . $imageName;

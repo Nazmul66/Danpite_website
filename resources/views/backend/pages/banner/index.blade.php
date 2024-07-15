@@ -1,7 +1,7 @@
 @extends('backend.layout.master')
 
 @push('meta-title')
-        Dashboard | Logo Section
+        Dashboard | Banner Section
 @endpush
 
 @push('add-css')
@@ -14,19 +14,19 @@
  <div class="row">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Logo Table</h5>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Logo</button>
+            <h5>Banner Table</h5>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Banner</button>
         </div>
 
 
         <div class="card-body">
           <div class="table-responsive text-nowrap">
-            <table class="table table-bordered" id="logoTables">
+            <table class="table table-bordered" id="bannerTables">
               <thead>
                 <tr>
                   <th>#SL.</th>
                   <th>Image</th>
-                  <th>URL</th>
+                  <th>Title</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -48,42 +48,42 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Create New Logo</h5>
+            <h5 class="modal-title" id="exampleModalLabel3">Create New Banner</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-            <form id="createForm" enctype="multipart/form-data">
-                @csrf
+                <form id="createForm" enctype="multipart/form-data">
+                    @csrf
 
-                    <div class="row">
-                        <div class="col mb-3">
-                           <label for="url" class="form-label">Logo URL</label>
-                           <input type="text" id="url" name="url" class="form-control" placeholder="Logo Name">
+                        <div class="row">
+                            <div class="col mb-3">
+                            <label for="title" class="form-label">Banner Title</label>
+                            <input type="text" id="title" name="title" class="form-control" placeholder="Banner Title">
+                            </div>
+
+                            <div class="col mb-3">
+                                <label for="banner_img" class="form-label">Banner Image</label>
+                                <input class="form-control" type="file" name="banner_img" id="banner_img">
+                            </div>
                         </div>
 
                         <div class="col mb-3">
-                            <label for="logo_img" class="form-label">Logo Image</label>
-                            <input class="form-control" type="file" name="logo_img" id="logo_img">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status">
+                                <option selected="" disabled value="">Open this select menu</option>
+                                <option value="1">Active</option>
+                                <option value="2">Deactive</option>
+                            </select>
                         </div>
-                    </div>
 
-                    <div class="col mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" name="status">
-                            <option selected="" disabled value="">Open this select menu</option>
-                            <option value="1">Active</option>
-                            <option value="2">Deactive</option>
-                        </select>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                        Close
-                        </button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-            </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </form>
             </div>
         </div>
         </div>
@@ -95,7 +95,7 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Update Logo</h5>
+            <h5 class="modal-title" id="exampleModalLabel3">Update Banner</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -108,13 +108,13 @@
 
                     <div class="row">
                         <div class="col mb-3">
-                           <label for="up_url" class="form-label">Logo URL</label>
-                           <input type="text" id="up_url" name="url" class="form-control" placeholder="Logo Name">
+                           <label for="title" class="form-label">Banner Title</label>
+                           <input type="text" id="up_title" name="title" class="form-control" placeholder="Banner Title">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="up_logo_img" class="form-label">Logo Image</label>
-                            <input class="form-control" type="file" name="logo_img" id="up_logo_img">
+                            <label for="banner_img" class="form-label">Banner Image</label>
+                            <input class="form-control" type="file" name="banner_img" id="banner_img">
 
                             <div id="imageShow"></div>
                         </div>
@@ -125,7 +125,7 @@
                         <select class="form-select" id="up_status" name="status">
                             <option selected="" disabled value="">Open this select menu</option>
                             <option value="1">Active</option>
-                            <option value="2">Deactive</option>
+                            <option value="0">Deactive</option>
                         </select>
                     </div>
 
@@ -154,13 +154,13 @@
      $(document).ready(function(){
 
         // show all data
-        let logoTables = $('#logoTables').DataTable({
+        let bannerTables = $('#bannerTables').DataTable({
             order: [
                 [0, 'asc']
             ],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.get-logo') }}",
+            ajax: "{{ route('admin.get-banner') }}",
             // pageLength: 30,
 
             columns: [
@@ -171,10 +171,10 @@
                     searchable: false
                 },
                 {
-                    data: 'logo_img'
+                    data: 'banner_img'
                 },
                 {
-                    data: 'url'
+                    data: 'title'
                 },
                 {
                     data: 'status'
@@ -195,14 +195,14 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.logo.status') }}",
+                url: "{{ route('admin.banner.status') }}",
                 data: {
                     // '_token': token,
                     id: id,
                     status: status
                 },
                 success: function (res) {
-                    logoTables.ajax.reload();
+                    bannerTables.ajax.reload();
 
                     if (res.status == 1) {
                         swal.fire(
@@ -225,8 +225,7 @@
             })
         })
 
-
-        // Create Logo
+        // Create Banner
         $('#createForm').submit(function (e) {
             e.preventDefault();
 
@@ -237,7 +236,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ route('admin.logo.store') }}",
+                url: "{{ route('admin.banner.store') }}",
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
@@ -246,7 +245,7 @@
                     if (res.status === true) {
                         $('#create_Modal').modal('hide');
                         $('#createForm')[0].reset();
-                        logoTables.ajax.reload();
+                        bannerTables.ajax.reload();
 
                         swal.fire({
                             title: "Success",
@@ -266,8 +265,7 @@
             });
         })
 
-
-        // Edit Logo
+        // Edit Banner
         $(document).on("click", '#editButton', function (e) {
             let id = $(this).attr('data-id');
             // alert(id);
@@ -277,7 +275,7 @@
                 // headers: {
                 //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 // },
-                url: "{{ url('admin/logo') }}/" + id + "/edit",
+                url: "{{ url('admin/banner') }}/" + id + "/edit",
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
                 success: function (res) {
@@ -285,10 +283,10 @@
                     // console.log(data)
 
                     $('#up_id').val(data.id);
-                    $('#up_url').val(data.url);
+                    $('#up_title').val(data.title);
                     $('#imageShow').html('');
                     $('#imageShow').append(`
-                        <img src={{ asset("`+ data.logo_img +`") }} alt="" style="width: 75px;">
+                        <img src={{ asset("`+ data.banner_img +`") }} alt="" style="width: 75px;">
                     `);
                     $('#up_status').val(data.status);
 
@@ -302,7 +300,7 @@
         })
 
 
-        // Update Logo
+        // Update Banner
         $("#updateForm").submit(function (e) {
             e.preventDefault();
 
@@ -314,7 +312,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ url('admin/logo') }}/" + id,
+                url: "{{ url('admin/banner') }}/" + id,
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
@@ -322,13 +320,13 @@
 
                     swal.fire({
                         title: "Success",
-                        text: "Category Edited",
+                        text: "Banner Edited",
                         icon: "success"
                     })
 
                     $('#editModal').modal('hide');
                     $('#updateForm')[0].reset();
-                    logoTables.ajax.reload();
+                    bannerTables.ajax.reload();
                 },
                 error: function (err) {
                     console.error('Error:', err);
@@ -343,7 +341,7 @@
         });
 
 
-        // Delete Logo
+        // Delete Banner
         $(document).on("click", "#deleteBtn", function () {
             let id = $(this).data('id')
 
@@ -361,7 +359,7 @@
                     $.ajax({
                         type: 'DELETE',
 
-                        url: "{{ url('admin/logo') }}/" + id,
+                        url: "{{ url('admin/banner') }}/" + id,
                         data: {
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -374,7 +372,7 @@
                                 icon: "success"
                             });
 
-                            logoTables.ajax.reload();
+                            bannerTables.ajax.reload();
                         },
                         error: function (err) {
                             console.log('error')
