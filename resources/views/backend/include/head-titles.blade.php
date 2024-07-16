@@ -20,8 +20,6 @@
 <!-- Icons. Uncomment required icon fonts -->
 <link rel="stylesheet" href="{{ asset('public/backend/assets/vendor/fonts/boxicons.css') }}" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
 <!-- Core CSS -->
 <link rel="stylesheet" href="{{ asset('public/backend/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
 <link rel="stylesheet" href="{{ asset('public/backend/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
@@ -37,6 +35,8 @@
 <!-- Page CSS -->
 
 @stack('add-css')
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 <!-- Helpers -->
 <script src="{{ asset('public/backend/assets/vendor/js/helpers.js') }}"></script>

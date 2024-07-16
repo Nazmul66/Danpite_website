@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\BasicInfoController;
+use App\Http\Controllers\Backend\ProfessionalController;
 
 
 //
@@ -69,5 +70,9 @@ Route::group(['prefix' => 'admin'], function(){
 
     //____ BasicInfo  ____//
     Route::resource('basic-info', BasicInfoController::class)->names('admin.basic-info');
+
+
+    //____ Professional  ____//
+    Route::resource('professional', ProfessionalController::class)->names('admin.professional');
 });
 
