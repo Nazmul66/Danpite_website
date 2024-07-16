@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\BasicInfoController;
 use App\Http\Controllers\Backend\ProfessionalController;
 use App\Http\Controllers\Backend\SafetyController;
+use App\Http\Controllers\Backend\PricePlanController;
 
 
 //
@@ -57,10 +58,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/contact/status',[ContactController::class,'adminContactStatus'])->name('admin.contact.status');
 
 
-    //____ NOTE About  ____//
-    Route::resource('about', AboutController::class)->names('admin.about');
-    Route::get('/get-about',[AboutController::class,'getData'])->name('admin.get-about');
-    Route::post('/about/status',[AboutController::class,'adminAboutStatus'])->name('admin.about.status');
+    //____ Price Plan  ____//
+    Route::resource('price-plan', PricePlanController::class)->names('admin.price-plan');
+    Route::get('/get-price-plan',[PricePlanController::class,'getData'])->name('admin.get-price-plan');
+    Route::post('/price-plan/status',[PricePlanController::class,'adminPricePlanStatus'])->name('admin.price-plan.status');
 
 
     //____ Service  ____//

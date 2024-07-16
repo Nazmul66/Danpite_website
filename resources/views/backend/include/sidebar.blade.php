@@ -145,6 +145,23 @@
         </li>
 
 
+      <!--  Price-Plan Section  -->
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Price-Plan</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{ route('admin.price-plan.index') }}" class="menu-link">
+              <div data-i18n="Without menu">Manage Price-Plan</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
       <!--  Safety Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
