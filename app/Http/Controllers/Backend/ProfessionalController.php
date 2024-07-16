@@ -59,6 +59,7 @@ class ProfessionalController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request->all());
         $professional = Professional::find($id);
 
         $professional->small_title         = $request->small_title;

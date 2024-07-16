@@ -1,7 +1,12 @@
 @extends('backend.layout.master')
 
 @push('meta-title')
-        Dashboard | Professional Section
+     Professional Section
+@endpush
+
+
+@push('add-css')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 @endpush
 
 
@@ -23,8 +28,6 @@
                <form method="POST" action="{{ route('admin.professional.store') }}" enctype="multipart/form-data">
                 @csrf
             @endif
-
-
 
                 <div class="row">
                     <div class="col mb-3">
@@ -75,7 +78,7 @@
                 <div class="row">
                     <div class="col mb-3">
                         <label for="color_theme" class="form-label">Color Theme</label>
-                        <input class="form-control" type="color" value="#666EE8" id="color_theme"
+                        <input class="form-control" type="color" name="color_theme" id="color_theme"
                             @if ( !empty( $professional ) )
                                 value="{{ $professional->color_theme }}"
                             @endif
@@ -99,8 +102,8 @@
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label" for="description">Description</label>
-                  <textarea id="description" class="form-control" name="description" placeholder="Write Here....." required>@if( !empty( $professional ) ){{ $professional->description }}@endif</textarea>
+                  <label class="form-label" for="">Description</label>
+                  <textarea id="summernote" class="form-control" name="description" required>@if( !empty( $professional ) ){{ $professional->description }}@endif</textarea>
                 </div>
 
                 @if ( !empty( $professional ) )
@@ -114,4 +117,30 @@
  </div>
 
 @endsection
+
+
+@push('script-tag')
+    <!-- Import CKEditor -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                placeholder: "Write Here.....",
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    </script>
+
+@endpush
 

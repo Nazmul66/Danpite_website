@@ -84,7 +84,7 @@ a{
     position: relative;
 }
 .banner-poster h1{
-    width: 50%;
+    width: 100%;
     font-size: 64px;
     font-weight: 600;
     line-height: 78px;
@@ -164,6 +164,14 @@ a{
 }
 
 @media ( min-width: 769px ) and ( max-width: 992px ){
+    .banner-poster {
+        padding: 3rem 0;
+    }
+    .img-container{
+        position: static;
+     }
+}
+@media ( min-width: 993px ) and ( max-width: 1280px ){
     .banner-poster {
         padding: 3rem 0;
     }

@@ -21,6 +21,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 
+@stack('script-tag')
+
+
 <script type="text/javascript">
         toastr.options = {
         "closeButton": false,
