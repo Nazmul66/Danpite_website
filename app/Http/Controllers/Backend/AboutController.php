@@ -4,23 +4,17 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\About;
 
 class AboutController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $about = About::first();
+        return view('backend.pages.about.index', compact('about'));
     }
 
     /**
@@ -28,23 +22,32 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // dd($request->all());
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $about = new About();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        $about->title               = $request->title;
+        $about->description         = $request->description;
+        $about->url                 = $request->url;
+
+        if( $request->file('image') ){
+            $image = $request->file('image');
+
+            $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/';
+            $image->move($imagePath, $imageName);
+
+            $about->image   = $imagePath . $imageName;
+        }
+
+        $about->save();
+
+        $notification = array(
+            'message'    => "About section content uploaded successfully.",
+            'alert-type' => "success"
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     /**
@@ -52,14 +55,33 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $about = About::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $about->title               = $request->title;
+        $about->description         = $request->description;
+        $about->url                 = $request->url;
+
+        if( $request->file('image') ){
+            $image = $request->file('image');
+
+            if( !is_null($about->image) && file_exists($about->image) ){
+                unlink($about->image);
+           }
+
+            $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/';
+            $image->move($imagePath, $imageName);
+
+            $about->image   = $imagePath . $imageName;
+        }
+
+        $about->save();
+
+        $notification = array(
+            'message'    => "About section content Updated successfully.",
+            'alert-type' => "success"
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

@@ -74,5 +74,9 @@ Route::group(['prefix' => 'admin'], function(){
 
     //____ Professional  ____//
     Route::resource('professional', ProfessionalController::class)->names('admin.professional');
+
+
+    //____ About  ____//
+    Route::resource('about', AboutController::class)->names('admin.about');
 });
 
