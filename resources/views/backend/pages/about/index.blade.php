@@ -14,7 +14,7 @@
         </div>
 
 
-        <div class="card-body">
+        <div class="card-body">safety
             @if ( !empty( $about ) )
                <form method="POST" action="{{ route('admin.about.update', $about->id ) }}" enctype="multipart/form-data">
                 @csrf

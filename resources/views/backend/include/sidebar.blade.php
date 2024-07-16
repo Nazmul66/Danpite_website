@@ -145,6 +145,23 @@
         </li>
 
 
+      <!--  Safety Section  -->
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Safety</div>
+        </a>
+
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{ route('admin.safety.index') }}" class="menu-link">
+              <div data-i18n="Without menu">Manage Safety</div>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
       <!--  Professional Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">

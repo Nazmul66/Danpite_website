@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\BasicInfoController;
 use App\Http\Controllers\Backend\ProfessionalController;
+use App\Http\Controllers\Backend\SafetyController;
 
 
 //
@@ -78,5 +79,9 @@ Route::group(['prefix' => 'admin'], function(){
 
     //____ About  ____//
     Route::resource('about', AboutController::class)->names('admin.about');
+
+
+    //____ Safety  ____//
+    Route::resource('safety', SafetyController::class)->names('admin.safety');
 });
 
