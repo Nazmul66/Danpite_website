@@ -5,7 +5,7 @@
 @endpush
 
 @push('add-css')
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.1/ckeditor5.css" />
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.1/ckeditor5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 @endpush
 
@@ -86,7 +86,8 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="price_desc">Description</label>
-                        <textarea id="price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
+                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                        <textarea id="price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden></textarea>
                     </div>
 
                     <div class="col mb-3">
@@ -140,7 +141,7 @@
                     <div class="row">
                         <div class="col mb-3">
                            <label for="color_theme" class="form-label">Color Theme</label>
-                           <input class="form-control" type="color" name="color_theme" value="#666EE8" id="up_color_theme">
+                           <input class="form-control" type="color" name="color_theme" id="up_color_theme">
                         </div>
 
                         <div class="col mb-3">
@@ -151,7 +152,9 @@
 
                     <div class="mb-3">
                         <label class="form-label" for="up_price_desc">Description</label>
+                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
                         <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
+                        <div id="long-text"></div>
                     </div>
 
 
@@ -331,7 +334,20 @@
                     $('#up_whatsapp').val(data.whatsapp);
                     $('#up_price_desc').val(data.price_desc);
                     $('#up_status').val(data.status);
+                    // $('#long-text').append(`
+                    //       <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden>`+ data.price_desc +`</textarea>
+                    // `);
 
+                    // Update CKEditor with fetched data
+                    ClassicEditor
+                        .create(document.querySelector('#up_price_desc'))
+                        .then(editor => {
+                            window.editor = editor;
+                            editor.setData(data.price_desc);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
                 },
                 error: function (error) {
                     console.log('error');
@@ -431,232 +447,17 @@
 
  </script>
 
+<script src="{{asset('https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js')}}"></script>
 
-<script type="importmap">
-    {
-        "imports": {
-            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.1/ckeditor5.js",
-            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.1/"
-        }
-    }
-</script>
-
-<script type="module">
-    import {
-        ClassicEditor, Essentials, Bold,
-        Highlight, Italic, FindAndReplace, Font,
-        Underline, Paragraph, Strikethrough,
-        Indent, IndentBlock, BlockQuote,
-        Link, List, Heading,
-        Code, Subscript, Superscript,
-        HorizontalLine, SelectAll,  SourceEditing,
-        SpecialCharacters, SpecialCharactersEssentials,
-        Table, TableToolbar, Alignment,
-        Image, ImageInsert
-    } from 'ckeditor5';
-
+<script>
     ClassicEditor
-        .create( document.querySelector( '#price_desc' ), {
-            plugins: [ Essentials, SourceEditing , Highlight, SelectAll, FindAndReplace, Bold, Italic, Underline, Strikethrough, Font, Subscript, Superscript, Paragraph, Indent, IndentBlock, BlockQuote, Link, Code, List, Heading, HorizontalLine, SpecialCharacters, SpecialCharactersEssentials, Table, TableToolbar, Alignment, Image, ImageInsert ],
-            fontSize: {
-                options: [
-                    9,
-                    11,
-                    13,
-                    'default',
-                    17,
-                    19,
-                    21,
-                    23,
-                    25,
-                    27,
-                    29,
-                    31,
-                ]
-            },
-            fontColor: {
-                colors: [
-                    {
-                        color: 'hsl(0, 0%, 0%)',
-                        label: 'Black'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 30%)',
-                        label: 'Dim grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 60%)',
-                        label: 'Grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 90%)',
-                        label: 'Light grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 100%)',
-                        label: 'White',
-                        hasBorder: true
-                    },
-                    // More colors.
-                    // ...
-                ]
-            },
-            fontBackgroundColor: {
-                colors: [
-                    {
-                        color: 'hsl(0, 75%, 60%)',
-                        label: 'Red'
-                    },
-                    {
-                        color: 'hsl(30, 75%, 60%)',
-                        label: 'Orange'
-                    },
-                    {
-                        color: 'hsl(60, 75%, 60%)',
-                        label: 'Yellow'
-                    },
-                    {
-                        color: 'hsl(90, 75%, 60%)',
-                        label: 'Light green'
-                    },
-                    {
-                        color: 'hsl(120, 75%, 60%)',
-                        label: 'Green'
-                    },
-                    // More colors.
-                    // ...
-                ]
-            },
-            alignment: {
-                options: [ 'left', 'right', 'center', 'justify' ]
-            },
-            toolbar: {
-                items: [
-                    'undo', 'redo', 'selectAll', 'sourceEditing',
-                    '|', 'heading', 'findAndReplace',
-                    '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-                    '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code', 'underline',
-                    '|', 'alignment', 'highlight', 'horizontalLine', 'specialCharacters',
-                    '|','link', 'uploadImage', 'blockQuote', 'insertTable', 'insertImage',
-                    '|', 'bulletedList', 'numberedList', 'outdent', 'indent', 'alignment',
-                ],
-                shouldNotGroupWhenFull: true
-            },
-            table: {
-                contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
-            }
-        } )
-        .then( /* ... */ )
-        .catch( /* ... */ );
-</script>
-
-<script type="module">
-    import {
-        ClassicEditor, Essentials, Bold,
-        Highlight, Italic, FindAndReplace, Font,
-        Underline, Paragraph, Strikethrough,
-        Indent, IndentBlock, BlockQuote,
-        Link, List, Heading,
-        Code, Subscript, Superscript,
-        HorizontalLine, SelectAll,  SourceEditing,
-        SpecialCharacters, SpecialCharactersEssentials,
-        Table, TableToolbar, Alignment,
-        Image, ImageInsert
-    } from 'ckeditor5';
-
-    ClassicEditor
-        .create( document.querySelector( '#up_price_desc' ), {
-            plugins: [ Essentials, SourceEditing , Highlight, SelectAll, FindAndReplace, Bold, Italic, Underline, Strikethrough, Font, Subscript, Superscript, Paragraph, Indent, IndentBlock, BlockQuote, Link, Code, List, Heading, HorizontalLine, SpecialCharacters, SpecialCharactersEssentials, Table, TableToolbar, Alignment, Image, ImageInsert ],
-            fontSize: {
-                options: [
-                    9,
-                    11,
-                    13,
-                    'default',
-                    17,
-                    19,
-                    21,
-                    23,
-                    25,
-                    27,
-                    29,
-                    31,
-                ]
-            },
-            fontColor: {
-                colors: [
-                    {
-                        color: 'hsl(0, 0%, 0%)',
-                        label: 'Black'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 30%)',
-                        label: 'Dim grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 60%)',
-                        label: 'Grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 90%)',
-                        label: 'Light grey'
-                    },
-                    {
-                        color: 'hsl(0, 0%, 100%)',
-                        label: 'White',
-                        hasBorder: true
-                    },
-                    // More colors.
-                    // ...
-                ]
-            },
-            fontBackgroundColor: {
-                colors: [
-                    {
-                        color: 'hsl(0, 75%, 60%)',
-                        label: 'Red'
-                    },
-                    {
-                        color: 'hsl(30, 75%, 60%)',
-                        label: 'Orange'
-                    },
-                    {
-                        color: 'hsl(60, 75%, 60%)',
-                        label: 'Yellow'
-                    },
-                    {
-                        color: 'hsl(90, 75%, 60%)',
-                        label: 'Light green'
-                    },
-                    {
-                        color: 'hsl(120, 75%, 60%)',
-                        label: 'Green'
-                    },
-                    // More colors.
-                    // ...
-                ]
-            },
-            alignment: {
-                options: [ 'left', 'right', 'center', 'justify' ]
-            },
-            toolbar: {
-                items: [
-                    'undo', 'redo', 'selectAll', 'sourceEditing',
-                    '|', 'heading', 'findAndReplace',
-                    '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-                    '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code', 'underline',
-                    '|', 'alignment', 'highlight', 'horizontalLine', 'specialCharacters',
-                    '|','link', 'uploadImage', 'blockQuote', 'insertTable', 'insertImage',
-                    '|', 'bulletedList', 'numberedList', 'outdent', 'indent', 'alignment',
-                ],
-                shouldNotGroupWhenFull: true
-            },
-            table: {
-                contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
-            }
-        } )
-        .then( /* ... */ )
-        .catch( /* ... */ );
+        .create(document.querySelector('#price_desc'))
+        .then(newEditor => {
+            jReq = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+    });
 </script>
 
 @endpush

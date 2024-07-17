@@ -17,7 +17,7 @@
         </div>
 
 
-        <div class="card-body">safety
+        <div class="card-body">
             @if ( !empty( $about ) )
                <form method="POST" action="{{ route('admin.about.update', $about->id ) }}" enctype="multipart/form-data">
                 @csrf
@@ -62,7 +62,8 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="description">Description</label>
-                  <textarea id="description" class="form-control" name="description" placeholder="Write Here....." required>@if( !empty( $about ) ){{ $about->description }}@endif</textarea>
+                  {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                  <textarea id="description" class="form-control" name="description" placeholder="Write Here....." style="display: block !important;" required hidden>@if( !empty( $about ) ){{ $about->description }}@endif</textarea>
                 </div>
 
                 @if ( !empty( $about ) )
@@ -107,20 +108,7 @@
             .create( document.querySelector( '#description' ), {
                 plugins: [ Essentials, SourceEditing , Highlight, SelectAll, FindAndReplace, Bold, Italic, Underline, Strikethrough, Font, Subscript, Superscript, Paragraph, Indent, IndentBlock, BlockQuote, Link, Code, List, Heading, HorizontalLine, SpecialCharacters, SpecialCharactersEssentials, Table, TableToolbar, Alignment, Image, ImageInsert ],
                 fontSize: {
-                    options: [
-                        9,
-                        11,
-                        13,
-                        'default',
-                        17,
-                        19,
-                        21,
-                        23,
-                        25,
-                        27,
-                        29,
-                        31,
-                    ]
+                    options: [9, 11,13,'default',17,19,21, 23,25,27,29,31]
                 },
                 fontColor: {
                     colors: [
@@ -171,8 +159,6 @@
                             color: 'hsl(120, 75%, 60%)',
                             label: 'Green'
                         },
-                        // More colors.
-                        // ...
                     ]
                 },
                 alignment: {
@@ -198,5 +184,6 @@
             .then( /* ... */ )
             .catch( /* ... */ );
     </script>
+
 @endpush
 

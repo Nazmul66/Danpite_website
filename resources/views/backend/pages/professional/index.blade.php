@@ -103,7 +103,8 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="">Description</label>
-                  <textarea id="description" class="form-control" name="description" required>@if( !empty( $professional ) ){{ $professional->description }}@endif</textarea>
+                    {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                  <textarea id="description" name="description"  placeholder="Write Here....." hidden>@if( !empty( $professional ) ){{ $professional->description }}@endif</textarea>
                 </div>
 
                 @if ( !empty( $professional ) )
@@ -120,123 +121,19 @@
 
 
 @push('script-tag')
-    <script type="importmap">
-        {
-            "imports": {
-                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.1/ckeditor5.js",
-                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.1/"
-            }
-        }
-    </script>
 
-    <script type="module">
-        import {
-            ClassicEditor, Essentials, Bold,
-            Highlight, Italic, FindAndReplace, Font,
-            Underline, Paragraph, Strikethrough,
-            Indent, IndentBlock, BlockQuote,
-            Link, List, Heading,
-            Code, Subscript, Superscript,
-            HorizontalLine, SelectAll,  SourceEditing,
-            SpecialCharacters, SpecialCharactersEssentials,
-            Table, TableToolbar, Alignment,
-            Image, ImageInsert
-        } from 'ckeditor5';
+<script src="{{asset('https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js')}}"></script>
 
-        ClassicEditor
-            .create( document.querySelector( '#description' ), {
-                plugins: [ Essentials, SourceEditing , Highlight, SelectAll, FindAndReplace, Bold, Italic, Underline, Strikethrough, Font, Subscript, Superscript, Paragraph, Indent, IndentBlock, BlockQuote, Link, Code, List, Heading, HorizontalLine, SpecialCharacters, SpecialCharactersEssentials, Table, TableToolbar, Alignment, Image, ImageInsert ],
-                fontSize: {
-                    options: [
-                        9,
-                        11,
-                        13,
-                        'default',
-                        17,
-                        19,
-                        21,
-                        23,
-                        25,
-                        27,
-                        29,
-                        31,
-                    ]
-                },
-                fontColor: {
-                    colors: [
-                        {
-                            color: 'hsl(0, 0%, 0%)',
-                            label: 'Black'
-                        },
-                        {
-                            color: 'hsl(0, 0%, 30%)',
-                            label: 'Dim grey'
-                        },
-                        {
-                            color: 'hsl(0, 0%, 60%)',
-                            label: 'Grey'
-                        },
-                        {
-                            color: 'hsl(0, 0%, 90%)',
-                            label: 'Light grey'
-                        },
-                        {
-                            color: 'hsl(0, 0%, 100%)',
-                            label: 'White',
-                            hasBorder: true
-                        },
-                        // More colors.
-                        // ...
-                    ]
-                },
-                fontBackgroundColor: {
-                    colors: [
-                        {
-                            color: 'hsl(0, 75%, 60%)',
-                            label: 'Red'
-                        },
-                        {
-                            color: 'hsl(30, 75%, 60%)',
-                            label: 'Orange'
-                        },
-                        {
-                            color: 'hsl(60, 75%, 60%)',
-                            label: 'Yellow'
-                        },
-                        {
-                            color: 'hsl(90, 75%, 60%)',
-                            label: 'Light green'
-                        },
-                        {
-                            color: 'hsl(120, 75%, 60%)',
-                            label: 'Green'
-                        },
-                        // More colors.
-                        // ...
-                    ]
-                },
-                alignment: {
-                    options: [ 'left', 'right', 'center', 'justify' ]
-                },
-                toolbar: {
-                    items: [
-                        'undo', 'redo', 'selectAll', 'sourceEditing',
-                        '|', 'heading', 'findAndReplace',
-                        '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
-                        '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code', 'underline',
-                        '|', 'alignment', 'highlight', 'horizontalLine', 'specialCharacters',
-                        '-', // break point
-                        'link', 'uploadImage', 'blockQuote', 'insertTable', 'insertImage',
-                        '|', 'bulletedList', 'numberedList', 'outdent', 'indent', 'alignment',
-                    ],
-                    shouldNotGroupWhenFull: true
-                },
-                table: {
-                    contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .then(newEditor => {
+            jReq = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+    });
+</script>
+
 @endpush
 
