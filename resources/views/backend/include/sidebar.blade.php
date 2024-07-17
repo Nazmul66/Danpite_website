@@ -80,7 +80,7 @@
       <!--  Category Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-layout"></i>
           <div data-i18n="Layouts">Category</div>
         </a>
 
@@ -97,7 +97,7 @@
       <!--  Logo Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-image-alt"></i>
           <div data-i18n="Layouts">Logo</div>
         </a>
 
@@ -114,7 +114,7 @@
       <!--  Banner Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-message-square-dots"></i>
           <div data-i18n="Layouts">Banner</div>
         </a>
 
@@ -131,7 +131,7 @@
         <!--  About Section  -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon tf-icons bx bxs-user-pin"></i>
                 <div data-i18n="Layouts">About</div>
             </a>
 
@@ -148,7 +148,7 @@
       <!--  Price-Plan Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-purchase-tag-alt"></i>
           <div data-i18n="Layouts">Price-Plan</div>
         </a>
 
@@ -165,7 +165,7 @@
       <!--  Safety Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bx-health"></i>
           <div data-i18n="Layouts">Safety</div>
         </a>
 
@@ -182,7 +182,7 @@
       <!--  Professional Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-user-badge"></i>
           <div data-i18n="Layouts">Professional</div>
         </a>
 
@@ -199,7 +199,7 @@
       <!--  Review Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-star"></i>
           <div data-i18n="Layouts">Review</div>
         </a>
 
@@ -216,7 +216,7 @@
       <!--  Project Showcase  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-detail"></i>
           <div data-i18n="Layouts">Project Showcase</div>
         </a>
 
@@ -233,7 +233,7 @@
       <!--  Contact Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-phone-call"></i>
           <div data-i18n="Layouts">Contact</div>
         </a>
 
@@ -251,7 +251,7 @@
       <!--  Service Section  -->
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <i class="menu-icon tf-icons bx bxs-conversation"></i>
           <div data-i18n="Layouts">Service</div>
         </a>
 
@@ -269,15 +269,15 @@
         <!--  Contact Section  -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <i class="menu-icon tf-icons bx bxs-cog"></i>
                 <div data-i18n="Layouts">Settings</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                <a href="{{ route('admin.basic-info.index') }}" class="menu-link">
-                    <div data-i18n="Without menu">Basic Settings</div>
-                </a>
+                    <a href="{{ route('admin.basic-info.index') }}" class="menu-link">
+                        <div data-i18n="Without menu">Basic Settings</div>
+                    </a>
                 </li>
             </ul>
         </li>

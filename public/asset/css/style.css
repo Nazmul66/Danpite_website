@@ -27,7 +27,7 @@ a{
 
 
 /****************************************************
-                Header Section start 
+                Header Section start
 ******************************************************/
 .nav-link {
     font-size: var(--bs-nav-link-font-size);
@@ -74,7 +74,7 @@ a{
 
 
 /****************************************************
-                Banner Section start 
+                Banner Section start
 ******************************************************/
 .banner-section{
 
@@ -182,7 +182,7 @@ a{
 
 
 /**********************************************
-            About Section start 
+            About Section start
 ************************************************/
 .about-section{
    padding: 5rem 0;
@@ -276,13 +276,13 @@ a{
 
 
 /**********************************************
-            Category Section start 
+            Category Section start
 ************************************************/
 .category-section{
    padding: 5rem 0;
 }
 .category-details{
-    
+
 }
 .category-details h1{
     text-align: center;
@@ -332,13 +332,13 @@ a{
 }
 
 /**********************************************
-            Service Section start 
+            Service Section start
 ************************************************/
 .service-section{
    padding: 5rem 0;
 }
 .service-container{
-    
+
 }
 .service-container h1{
     text-align: center;
@@ -376,7 +376,7 @@ a{
 .service-content .star-ratings .bxs-star {
     color: #FEA200;
     font-size: 22px;
-}   
+}
 .service-content .action-service{
     display: flex;
     align-items: center;
@@ -450,7 +450,7 @@ a{
 }
 
 /**********************************************
-            Pricelist Section start 
+            Pricelist Section start
 ************************************************/
 .pricelist_section{
     padding: 5rem 0;
@@ -595,11 +595,11 @@ a{
 
 
 /**********************************************
-            Pro Service Section start 
+            Pro Service Section start
 ************************************************/
 .pro-service-section{
     padding: 5rem 0;
-}  
+}
 .pro-service-container{
     display: flex;
     justify-content: space-between;
@@ -642,7 +642,7 @@ a{
 .professional-service .btn-watch:hover{
     background: #FFF;
     border: 2px solid #23B14D;
-    color: #23B14D;  
+    color: #23B14D;
 }
 
 @media ( min-width: 320px ) and ( max-width: 576px ){
@@ -739,7 +739,7 @@ a{
 }
 
 /**********************************************
-            project Section start 
+            project Section start
 ************************************************/
 .project-section{
 
@@ -763,7 +763,7 @@ a{
 .project-galary{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px; 
+    gap: 14px;
 }
 .project-galary img{
     width: 100%;
@@ -773,7 +773,7 @@ a{
 @media ( min-width: 320px ) and ( max-width: 576px ){
     .project-headtitle p {
         width: 100%;
-    }    
+    }
 }
 
 @media ( min-width: 577px ) and ( max-width: 768px ){
@@ -789,7 +789,7 @@ a{
 }
 
 /**********************************************
-            Safety Section start 
+            Safety Section start
 ************************************************/
 .safty-section{
    padding: 4rem 0;
@@ -805,7 +805,7 @@ a{
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    gap: 30px;
-} 
+}
 .safety-service{
     display: flex;
     align-items: center;
@@ -864,7 +864,7 @@ a{
 
 
 /**********************************************
-            Emergency Section start 
+            Emergency Section start
 ************************************************/
 .emergency-section{
 
@@ -901,7 +901,7 @@ a{
     }
     .emergency-details .bx-phone-call {
         font-size: 24px;
-    }    
+    }
     .emergency-details a {
         font-size: 24px;
     }
@@ -916,7 +916,7 @@ a{
     }
     .emergency-details .bx-phone-call {
         font-size: 24px;
-    }    
+    }
     .emergency-details a {
         font-size: 24px;
     }
@@ -931,20 +931,20 @@ a{
     }
     .emergency-details .bx-phone-call {
         font-size: 24px;
-    }  
+    }
     .emergency-details a {
         font-size: 24px;
-    }  
+    }
 }
 
 /**********************************************
-            Logo Section start 
+            Logo Section start
 ************************************************/
 .logo-section{
     padding: 4rem 0;
 }
 .logo-container{
-    
+
 }
 .logo-container h1{
     font-size: 32px;
@@ -963,7 +963,7 @@ a{
 }
 .owl-theme .owl-nav {
     margin-top: 0px;
-}  
+}
 #logo-slider button.owl-prev,
 #logo-slider button.owl-next{
     font-size: 24px;
@@ -997,7 +997,7 @@ a{
 
 
 /**********************************************
-            Review Section start 
+            Review Section start
 ************************************************/
 .review-section{
     padding: 3rem 0;
@@ -1063,20 +1063,20 @@ a{
 
 
 /**********************************************
-            Contact Section start 
+            Contact Section start
 ************************************************/
 .contact-section{
     padding: 4rem 0;
     background-color: #F6F7F9;
 }
 .contact-img{
-    
+
 }
 .contact-img img{
-    width: 100%;  
+    width: 100%;
 }
 .contact-form{
-    
+
 }
 .contact-form h6{
     color: #33C36C;
@@ -1125,7 +1125,7 @@ a{
 
 
 /**********************************************
-            Footer Section start 
+            Footer Section start
 ************************************************/
 footer{
     padding: 5rem 0;
@@ -1135,7 +1135,7 @@ footer{
     padding: 30px 50px;
 }
 .widget-1{
-    
+
 }
 .widget-1 p{
     font-size: 15px;
@@ -1144,10 +1144,10 @@ footer{
     margin-top: 12px;
 }
 .widget-2{
-    
+
 }
 .service_list{
-    display: flex; 
+    display: flex;
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -1201,7 +1201,7 @@ footer{
     }
     .widget-2 {
         margin-bottom: 40px;
-    }    
+    }
     .widget-2 h4 {
         margin-bottom: 20px;
     }
@@ -1221,7 +1221,7 @@ footer{
     }
     .widget-2 {
         margin-bottom: 40px;
-    }    
+    }
     .widget-2 h4 {
         margin-bottom: 20px;
     }
@@ -1241,7 +1241,7 @@ footer{
     }
     .widget-2 {
         margin-bottom: 40px;
-    }    
+    }
     .widget-2 h4 {
         margin-bottom: 20px;
     }

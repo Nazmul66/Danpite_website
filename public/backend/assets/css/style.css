@@ -23,3 +23,12 @@
     transform: translateY(-2px);
     opacity: 0.9;
 }
+
+
+/****** Extra Css ******/
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {
+    height: 150px !important;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    height: 150px !important;
+}
