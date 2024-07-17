@@ -76,7 +76,7 @@ class ReviewController extends Controller
             $review_img = $request->file('review_img');
 
             $imageName          = microtime('.') . '.' . $review_img->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/banner/';
+            $imagePath          = 'public/backend/image/review/';
             $review_img->move($imagePath, $imageName);
 
             $review->review_img   = $imagePath . $imageName;

@@ -48,7 +48,7 @@ class BasicInfoController extends Controller
             $logo = $request->file('logo');
 
             $imageName          = microtime('.') . '.' . $logo->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/basicInfo/';
             $logo->move($imagePath, $imageName);
 
             $basicInfo->logo   = $imagePath . $imageName;
@@ -96,7 +96,7 @@ class BasicInfoController extends Controller
             }
 
             $imageName          = microtime('.') . '.' . $logo->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/basicInfo/';
             $logo->move($imagePath, $imageName);
 
             $basicInfo->logo   = $imagePath . $imageName;

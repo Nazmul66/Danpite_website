@@ -80,7 +80,7 @@ class ProjectController extends Controller
             $project_img = $request->file('project_img');
 
             $imageName          = microtime('.') . '.' . $project_img->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/banner/';
+            $imagePath          = 'public/backend/image/project/';
             $project_img->move($imagePath, $imageName);
 
             $project->project_img   = $imagePath . $imageName;
@@ -143,7 +143,7 @@ class ProjectController extends Controller
              }
 
             $imageName          = microtime('.') . '.' . $project_img->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/banner/';
+            $imagePath          = 'public/backend/image/project/';
             $project_img->move($imagePath, $imageName);
 
             $project->project_img   = $imagePath . $imageName;

@@ -76,7 +76,7 @@ class LogoController extends Controller
             $logo_img = $request->file('logo_img');
 
             $imageName          = microtime('.') . '.' . $logo_img->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/category/';
+            $imagePath          = 'public/backend/image/logo/';
             $logo_img->move($imagePath, $imageName);
 
             $logo->logo_img   = $imagePath . $imageName;

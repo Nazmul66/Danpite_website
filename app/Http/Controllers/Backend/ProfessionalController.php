@@ -38,7 +38,7 @@ class ProfessionalController extends Controller
             $image = $request->file('image');
 
             $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/professional/';
             $image->move($imagePath, $imageName);
 
             $professional->image   = $imagePath . $imageName;
@@ -77,7 +77,7 @@ class ProfessionalController extends Controller
            }
 
             $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/professional/';
             $image->move($imagePath, $imageName);
 
             $professional->image   = $imagePath . $imageName;

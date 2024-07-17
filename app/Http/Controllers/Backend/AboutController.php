@@ -34,7 +34,7 @@ class AboutController extends Controller
             $image = $request->file('image');
 
             $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/about/';
             $image->move($imagePath, $imageName);
 
             $about->image   = $imagePath . $imageName;
@@ -69,7 +69,7 @@ class AboutController extends Controller
            }
 
             $imageName          = microtime('.') . '.' . $image->getClientOriginalExtension();
-            $imagePath          = 'public/backend/image/';
+            $imagePath          = 'public/backend/image/about/';
             $image->move($imagePath, $imageName);
 
             $about->image   = $imagePath . $imageName;
