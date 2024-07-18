@@ -4,8 +4,10 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="widget-1">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam dolorum corrupti rem incidunt excepturi ut maxime? Optio cum blanditiis dicta beatae ex, dolorum temporibus magni facere quia, voluptates aut harum!</p>
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                        </a>
+                        <p>{{ $basicInfo->address_optional }}</p>
                     </div>
                 </div>
 
@@ -77,9 +79,9 @@
                     <div class="widget-2">
                         <h4>Contact Us</h4>
                         <ul>
-                            <li><span>Address: </span> 24 linen Hall, 162-168 regent st. London</li>
-                            <li><span>Email: </span>info@danpite.com</li>
-                            <li><span>Phone: </span> 01832598718</li>
+                            <li><span>Address: </span>{{ $basicInfo->address }}</li>
+                            <li><span>Email: </span>{{ $basicInfo->email }}</li>
+                            <li><span>Phone: </span> {{ $basicInfo->phone }}</li>
                         </ul>
                     </div>
                 </div>

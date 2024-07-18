@@ -16,11 +16,10 @@ use App\Http\Controllers\Backend\SafetyController;
 use App\Http\Controllers\Backend\PricePlanController;
 
 
-//
+Route::view('/admin/login', 'backend.pages.login.index');
 
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-
+    Route::get('/dashboards', [AdminController::class, 'dashboards'])->name('dashboards');
 
     //____  Category  ____//
     Route::resource('category', CategoryController::class)->names('admin.category');

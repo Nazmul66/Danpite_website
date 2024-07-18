@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Safety extends Model
 {
     use HasFactory;
+
+    static public function getData(){
+        return self::where('id', '1')->first();
+    }
 }

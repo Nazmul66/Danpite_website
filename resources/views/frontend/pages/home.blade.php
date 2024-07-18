@@ -1,20 +1,25 @@
+@php
+    // echo $about ;
+@endphp
+
+
 @extends('frontend.layout.master')
 
 
 @push('meta-title')
-    Danpite Tech
+    Danpite Tech 
 @endpush
 
 
 @section('body-content')
 
- <!-- Banner section start -->
+ <!-- Banner section start [Done] -->
  <section class="banner-section">
     <div class="container">
       <div class="banner-poster">
         <div class="row">
           <div class="col-lg-6 col-xl-6" data-aos="fade-right" data-aos-duration="1500">
-                <h1>Home Improvement made easy</h1>
+                <h1>{{ $banner->title }}</h1>
 
                 <div class="form-field">
                   <form action="">
@@ -26,7 +31,7 @@
 
             <div class="col-lg-6 col-xl-6" data-aos="fade-left" data-aos-duration="1500">
               <div class="img-container">
-                 <img src="{{ asset('public/asset/images/banner-image.png') }}" alt="">
+                 <img src="{{ asset($banner->banner_img) }}" alt="">
               </div>
            </div>
         </div>
@@ -36,30 +41,27 @@
 <!-- Banner section end -->
 
 
-<!-- About section start -->
+<!-- About section start [Done] -->
 <section class="about-section">
     <div class="container">
     <div class="row align-items-center">
         <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
             <div class="about-image">
-                <img src="{{ asset('public/asset/images/about-image.jpg') }}" alt="">
+                <img src="{{ asset($about->image) }}" alt="">
             </div>
         </div>
 
         <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
             <div class="about-info">
-                <h1>Why Danpite ?</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores ullam ut facere inventore sequi esse, tempore rerum ipsam eligendi totam rem consectetur assumenda harum. Vero repellat facere laudantium saepe a! Itaque, voluptatem? Commodi voluptas harum vitae accusamus placeat pariatur praesentium corporis ipsam optio. Laboriosam animi, voluptate laborum quisquam ea adipisci.</p>
+                <h1>{{ $about->title }}</h1>
 
-                <ul>
-                <li>1000+ verified, trusted & reliable pros</li>
-                <li>Find pros in 200+ home services</li>
-                <li>Compare quotes easily</li>
-                <li>Speak with a pro directly</li>
-                <li>Book emergency services</li>
-                </ul>
+                <div class="about-contents">
+                    {!! $about->description !!}
+                </div>
 
-                <button class="btn-join">Join Us</button>
+                <a href="{{ $about->url }}">
+                    <button class="btn-join">Join Us</button>
+                </a>
             </div>
         </div>
     </div>
@@ -68,7 +70,7 @@
 <!-- About section start -->
 
 
-<!-- Category section start -->
+{{-- <!-- Category section start [Done] -->
 <section class="category-section">
     <div class="container">
     <div class="row">
@@ -131,11 +133,11 @@
     </div>
     </div>
 </section>
-<!-- Category section end -->
+<!-- Category section end --> --}}
 
 
-<!-- service section start -->
-<section class="service-section">
+<!-- service section start [Done] -->
+<section class="service-section" id="service">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -143,126 +145,46 @@
                     <h1>See Our Services</h1>
 
                     <div class="service-list">
-                        <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
-                            <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
+                        @foreach ($services as $service)
+                            <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
+                                <img src="{{ asset( $service->service_img ) }}" alt="">
 
-                            <div class="service-content">
-                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                                <div class="star-ratings">
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                </div>
+                                <div class="service-content">
+                                    <h2>{{ $service->title }}</h2>
+                                    <div class="star-ratings">
+                                        @if ( $service->ratings == 2 )
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                        @elseif( $service->ratings == 3 )
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                        @elseif( $service->ratings == 4 )
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                        @elseif( $service->ratings == 5 )
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                          <i class='bx bxs-star' ></i>
+                                        @endif
+                                    </div>
 
-                                <div class="action-service">
-                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                    <button class="chat-btn">Chat Now</button>
-                                </div>
-                            </div>
-                        </div>
+                                    <div class="action-service">
+                                        <a href=""><span>Read More</span> 
+                                            <i class='bx bx-right-arrow-alt'></i>
+                                        </a>
 
-                        <div class="service-details" data-aos="fade-down" data-aos-duration="1500">
-                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                        <div class="service-content">
-                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                            <div class="star-ratings">
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                            </div>
-
-                            <div class="action-service">
-                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                <button class="chat-btn">Chat Now</button>
-                            </div>
-                        </div>
-                    </div>
-
-                        <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
-                            <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                            <div class="service-content">
-                                <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                                <div class="star-ratings">
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                    <i class='bx bxs-star' ></i>
-                                </div>
-
-                                <div class="action-service">
-                                    <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                    <button class="chat-btn">Chat Now</button>
+                                        <a href="tel:{{ $service->whatsapp }}"> 
+                                            <button class="chat-btn">Chat Now</button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
-                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                        <div class="service-content">
-                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                            <div class="star-ratings">
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                            </div>
-
-                            <div class="action-service">
-                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                <button class="chat-btn">Chat Now</button>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="service-details" data-aos="fade-up" data-aos-duration="1500">
-                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                        <div class="service-content">
-                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                            <div class="star-ratings">
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                            </div>
-
-                            <div class="action-service">
-                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                <button class="chat-btn">Chat Now</button>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="service-details" data-aos="fade-left" data-aos-duration="1500">
-                        <img src="{{ asset('public/asset/images/services.jpg') }}" alt="">
-
-                        <div class="service-content">
-                            <h2>Experience the height of luxury with FavoriteColour's House ceiling</h2>
-                            <div class="star-ratings">
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                                <i class='bx bxs-star' ></i>
-                            </div>
-
-                            <div class="action-service">
-                                <a href=""><span>Read More</span> <i class='bx bx-right-arrow-alt'></i></a>
-                                <button class="chat-btn">Chat Now</button>
-                            </div>
-                        </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -272,133 +194,76 @@
 <!-- service section end -->
 
 
-<!-- pricelist section start -->
-<section class="pricelist_section">
+<!-- pricelist section start [Done]  -->
+<section class="pricelist_section" id="price">
     <div class="container">
-    <div class="row">
-        <div class="price_head">
-            <h1>Our Price List</h1>
+        <div class="row">
+            <div class="price_head">
+                <h1>Our Price List</h1>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-4" data-aos="zoom-out-right" data-aos-duration="1500">
-            <div class="main-price-list">
-                <div class="price-headlist" style="background-color: #FCCA13;">
-                    <h3>Basic</h3>
-                    <p>Nippon Matex White Entry Level</p>
-                </div>
+        <div class="row">
+            @foreach ($pricePlans as $pricePlan)
 
-                <div class="price-list-menu">
-                    <ul>
-                    <li>$ 280 / rome</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                </ul>
-                </div>
+               @if ( $pricePlans->count() === 1 )
+                  <div class="col-lg-6 offset-lg-3" data-aos="zoom-out-right" data-aos-duration="1500">
 
-                <div class="text-center">
-                    <a href="" class="price-btn yellow-color" >
-                        <div class="whatsapp-icon">
-                            <i class='bx bxl-whatsapp'></i>
-                            <label class="chat-text">Let's Chat</label>
+               @elseif( $pricePlans->count() === 2 )
+                  <div class="col-lg-6" data-aos="zoom-out-right" data-aos-duration="1500">
+
+               @else
+                  <div class="col-lg-4" data-aos="zoom-out-right" data-aos-duration="1500">
+               @endif
+
+                    <div class="main-price-list">
+                        <div class="price-headlist" style="background-color: {{ $pricePlan->color_theme }};">
+                            <h3>{{ $pricePlan->price_title }}</h3>
+                            <p>{{ $pricePlan->price_package }}</p>
                         </div>
-                        <span>get best price</span>
-                    </a>
+
+                        <div class="price-list-menu">
+                            {!! $pricePlan->price_desc !!}
+                        </div>
+
+                        <div class="text-center">
+                            <a href="tel:{{ $pricePlan->whatsapp }}" class="price-btn" style="background-color: {{ $pricePlan->color_theme }};">
+                                <div class="whatsapp-icon">
+                                    <i class='bx bxl-whatsapp'></i>
+                                    <label class="chat-text">Let's Chat</label>
+                                </div>
+                                <span>get best price</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
-
-        <div class="col-lg-4" data-aos="zoom-out-up" data-aos-duration="1500">
-            <div class="main-price-list">
-            <div class="price-headlist" style="background-color: #4DBDBE;">
-                <h3>Basic</h3>
-                <p>Nippon Matex White Entry Level</p>
-            </div>
-
-            <div class="price-list-menu">
-                <ul>
-                    <li>$ 280 / rome</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                    <li>2Rm HDB - $599</li>
-                </ul>
-            </div>
-
-            <div class="text-center">
-                <a href="" class="price-btn sky-color" >
-                    <div class="whatsapp-icon">
-                        <i class='bx bxl-whatsapp'></i>
-                        <label class="chat-text">Let's Chat</label>
-                    </div>
-                    <span>get best price</span>
-                </a>
-            </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4" data-aos="zoom-out-left" data-aos-duration="1500">
-        <div class="main-price-list">
-            <div class="price-headlist" style="background-color: #3DB7E8;">
-                <h3>Basic</h3>
-                <p>Nippon Matex White Entry Level</p>
-            </div>
-
-            <div class="price-list-menu">
-                <ul>
-                <li>$ 280 / rome</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-                <li>2Rm HDB - $599</li>
-            </ul>
-            </div>
-
-            <div class="text-center">
-                <a href="" class="price-btn navy-color" >
-                    <div class="whatsapp-icon">
-                        <i class='bx bxl-whatsapp'></i>
-                        <label class="chat-text">Let's Chat</label>
-                    </div>
-                    <span>get best price</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    </div>
     </div>
 </section>
 <!-- pricelist section end -->
 
 
-<!-- pro-service section start -->
+<!-- pro-service section start [Done] -->
 <section class="pro-service-section">
   <div class="container">
       <div class="pro-service-container">
             <div class="service-images" data-aos="fade-down-right" data-aos-duration="1500">
-                <img src="{{ asset('public/asset/images/paint-house.jpg') }}" alt="">
+                <img src="{{ asset($professional->image) }}" alt="">
             </div>
 
             <div class="professional-service" data-aos="fade-down-left" data-aos-duration="1500">
-                <h5>Dependable & Sincere Company</h5>
-                <h1>Professional Reovation services & painting services in singapore</h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam, doloribus neque iure exercitationem nam temporibus tenetur necessitatibus ea perspiciatis eius repellendus atque id dignissimos soluta quos esse ipsum sit est error cupiditate veniam dolor consequuntur suscipit. Tempore id eos distinctio voluptates tempora iusto officiis, eaque ullam eveniet, necessitatibus reprehenderit adipisci ex enim exercitationem. Quo quidem ab suscipit eligendi eum soluta.</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid quae quam fuga laboriosam delectus vitae, officiis ipsam sit animi iure iusto dolor minus a exercitationem aut corrupti aperiam consequuntur quod aliquam odit provident reprehenderit quaerat. Quod reprehenderit fuga eum obcaecati nemo vel suscipit excepturi praesentium. Soluta voluptas accusamus at quo?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius vel harum dolores molestiae rerum, dolorum repellat, quaerat laboriosam, at sequi soluta quibusdam ad nesciunt aliquid placeat similique facere pariatur fugit?</p>
+                <h5>{{ $professional->small_title }}</h5>
+                <h1>{{ $professional->main_title }}</h1>
 
-                <button class="btn-watch">Watch Video</button>
+                <div class="professional-paragraph">
+                    {!! $professional->description !!}
+                </div>
+                
+
+                <a href="{{ $professional->url }}">
+                    <button class="btn-watch">Watch Video</button>
+                </a>
             </div>
       </div>
   </div>
@@ -406,8 +271,8 @@
 <!-- pro-service section end -->
 
 
-<!-- Projects section start -->
-<section class="project-section">
+<!-- Projects section start [Done] -->
+<section class="project-section" id="project">
   <div class="container">
       <div class="row">
           <div class="project-headtitle">
@@ -415,12 +280,9 @@
              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem atque nostrum quos. In, voluptatum maiores? In fugiat laboriosam odit qui harum molestiae possimus quod aut!</p>
 
              <div class="project-galary" data-aos="zoom-in" data-aos-duration="1500">
-                <a href="#"><img src="{{ asset('public/asset/images/project1.jpg') }}" alt=""></a>
-                <a href="#"><img src="{{ asset('public/asset/images/project2.jpg') }}" alt=""></a>
-                <a href="#"><img src="{{ asset('public/asset/images/project3.jpg') }}" alt=""></a>
-                <a href="#"><img src="{{ asset('public/asset/images/project4.jpg') }}" alt=""></a>
-                <a href="#"><img src="{{ asset('public/asset/images/project5.jpg') }}" alt=""></a>
-                <a href="#"><img src="{{ asset('public/asset/images/project6.jpg') }}" alt=""></a>
+                @foreach ($projects as $project)
+                    <a href="{{ $project->url }}"><img src="{{ asset($project->project_img) }}" alt="{{ $project->name }}"></a>
+                @endforeach
              </div>
           </div>
       </div>
@@ -429,7 +291,7 @@
 <!-- Projects section end -->
 
 
-<!-- Safety section start -->
+<!-- Safety section start [Done] -->
 <section class="safty-section">
   <div class="container">
       <div class="row align-items-center">
@@ -463,7 +325,7 @@
 
           <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1500">
               <div class="youtube-video">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/3VJbltbRNP0?si=g4xqz9MCof8anWOi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  {!! $safety->youtube_url !!}
               </div>
           </div>
       </div>
@@ -472,14 +334,14 @@
 <!-- Safety section end -->
 
 
-<!-- Emergency-call section start -->
+<!-- Emergency-call section start [Done] -->
    <section class="emergency-section">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
                   <div class="emergency-details">
                       <h1><i class='bx bx-phone-call'></i> Need Emergency Painting? Call us 24/7 For Expert Help</h1>
-                      <a href="tel:">Call +01852369148</a>
+                      <a href="tel:">Call +{{ $basicInfo->phone }}</a>
                   </div>
               </div>
           </div>
@@ -488,8 +350,8 @@
 <!-- Emergency-call section end -->
 
 
-<!-- Logo section start -->
-  <section class="logo-section">
+<!-- Logo section start [Done] -->
+  <section class="logo-section" id="galary">
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
@@ -497,21 +359,13 @@
                       <h1>We can supply and use any below brand of paints of client choice.</h1>
 
                       <div class="owl-carousel owl-theme" id="logo-slider">
-                          <div class="logo-div">
-                              <img src="{{ asset('public/asset/images/ahadian.png') }}" alt="">
-                          </div>
-                          <div class="logo-div">
-                              <img src="{{ asset('public/asset/images/girlifix.jpg') }}" alt="">
-                          </div>
-                          <div class="logo-div">
-                              <img src="{{ asset('public/asset/images/dailyBazaar.png') }}" alt="">
-                          </div>
-                          <div class="logo-div">
-                              <img src="{{ asset('public/asset/images/arishaTetx.jpg') }}" alt="">
-                          </div>
-                          <div class="logo-div">
-                              <img src="{{ asset('public/asset/images/KhatiPlus.png') }}" alt="">
-                          </div>
+                        @foreach ($logos as $logo)
+                            <div class="logo-div">
+                                <a href="{{ $logo->url }}">
+                                    <img src="{{ asset($logo->logo_img) }}" alt="">
+                                </a>
+                            </div>
+                        @endforeach
                       </div>
                   </div>
               </div>
@@ -521,7 +375,7 @@
 <!-- Logo section end -->
 
 
-<!-- Review section start -->
+<!-- Review section start [Done] -->
   <section class="review-section">
       <div class="container">
           <div class="row">
@@ -529,24 +383,40 @@
                   <h1>Client's Review</h1>
 
                   <div class="owl-carousel owl-theme" id="review-slider">
-                      <div class="review-content">
-                          <div class="review-content-head">
-                              <img src="{{ asset('public/asset/images/avatar2.png') }}" alt="">
-
-                              <div class="review-ratings-deatils">
-                                  <h4>Lim Vic Kie</h4>
-                                  <div class="star-ratings">
-                                      <i class="bx bxs-star"></i>
-                                      <i class="bx bxs-star"></i>
-                                      <i class="bx bxs-star"></i>
-                                      <i class="bx bxs-star"></i>
-                                      <i class="bx bxs-star"></i>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, nam eius voluptate quis ducimus enim dolorem odit nisi deserunt at animi soluta dolorum consectetur ullam aliquid officia?</p>
-                      </div>
+                        @foreach ( $reviews as $review )
+                            <div class="review-content">
+                                <div class="review-content-head">
+                                    <img src="{{ asset( $review->review_img ) }}" alt="">
+    
+                                    <div class="review-ratings-deatils">
+                                        <h4>{{ $review->name }}</h4>
+                                        <div class="star-ratings">
+                                            @if ( $review->ratings == 2 )
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                            @elseif( $review->ratings == 3 )
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                            @elseif( $review->ratings == 4 )
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                            @elseif( $review->ratings == 5 )
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                                <i class='bx bxs-star' ></i>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <p>{{ $review->description }}</p>
+                            </div>
+                        @endforeach
                   </div>
               </div>
           </div>
@@ -598,9 +468,9 @@
                           <div class="mb-3">
                               <select class="form-select form-select-lg mb-3" name="service">
                                   <option selected>Open this select menu</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
+                                  @foreach ($services as $service)
+                                     <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                  @endforeach
                               </select>
                           </div>
                       </div>

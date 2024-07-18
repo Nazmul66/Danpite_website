@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Professional extends Model
 {
     use HasFactory;
+
+    static public function getData(){
+        return self::where('status', '1')->first();
+    }
 }

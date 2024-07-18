@@ -29,6 +29,15 @@ a{
 /****************************************************
                 Header Section start
 ******************************************************/
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    z-index: 9999;
+}
 .nav-link {
     font-size: var(--bs-nav-link-font-size);
     font-weight: 700;
@@ -76,8 +85,8 @@ a{
 /****************************************************
                 Banner Section start
 ******************************************************/
-.banner-section{
-
+.banner-section {
+    margin-top: 80px;
 }
 .banner-poster{
     padding: 5rem 0;
@@ -187,19 +196,19 @@ a{
 .about-section{
    padding: 5rem 0;
 }
-.about-info p{
+.about-info .about-contents p{
     font-family: "Manrope", sans-serif;
     font-weight: 600;
     color: #6D6864;
     margin: 16px 0 36px;
     line-height: 26px;
 }
-.about-info ul li{
+.about-info .about-contents ul li{
     color: #1a1a1a;
     font-weight: 600;
     margin-bottom: 12px;
 }
-.about-info ul li::before{
+.about-info .about-contents ul li::before{
     content: "\2713";
     color: #F0BE50;
     font-weight: 700;
@@ -623,7 +632,7 @@ a{
 .professional-service h1{
     margin-bottom: 32px;
 }
-.professional-service p{
+.professional-service .professional-paragraph p{
     font-family: "Manrope", sans-serif;
     font-weight: 600;
     color: #6D6864;

@@ -1,7 +1,9 @@
+
+
 @extends('backend.layout.master')
 
 @push('meta-title')
-        Dashboard | About Section
+        Dashboard | About Section 
 @endpush
 
 @push('add-css')
@@ -62,8 +64,8 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="description">Description</label>
-                  {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
-                  <textarea id="description" class="form-control" name="description" placeholder="Write Here....." style="display: block !important;" required hidden>@if( !empty( $about ) ){{ $about->description }}@endif</textarea>
+                  {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) and not add ( 'required' ==> Attribute  ) --}}
+                  <textarea id="description" class="form-control" name="description" placeholder="Write Here....." style="display: block !important;" hidden>@if( !empty( $about ) ){{ $about->description }}@endif</textarea>
                 </div>
 
                 @if ( !empty( $about ) )
