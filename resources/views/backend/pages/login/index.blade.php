@@ -64,7 +64,11 @@
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
-                    <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                    @if ( !empty($basicInfo->logo) )
+                      <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                    @else
+                      <img src="{{ asset('public/asset/images/logo.png') }}" alt="" style="width: 200px;">
+                    @endif
                 </a>
               </div>
               <!-- /Logo -->

@@ -16,9 +16,10 @@ use App\Http\Controllers\Backend\SafetyController;
 use App\Http\Controllers\Backend\PricePlanController;
 
 
-Route::view('/admin/login', 'backend.pages.login.index');
+// Route::view('/admin/login', 'backend.pages.login.index');
 
-Route::group(['prefix' => 'admin'], function(){
+
+Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], function(){
     Route::get('/dashboards', [AdminController::class, 'dashboards'])->name('dashboards');
 
     //____  Category  ____//

@@ -5,7 +5,12 @@
              <nav class="navbar navbar-expand-lg">
                  <div class="container-fluid">
                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+
+                        @if ( !empty($basicInfo->logo) )
+                            <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                        @else
+                            <img src="{{ asset('public/asset/images/logo.png') }}" alt="" style="width: 200px;">
+                        @endif
                    </a>
 
                    <!-- Mobile button toggle -->
@@ -28,14 +33,25 @@
                        <li class="nav-item">
                          <a class="nav-link" href="#galary">Galary</a>
                         </li>
-                       <li class="nav-item">
-                         <a class="nav-link" href="#">Login</a>
-                       </li>
+
+                          @if ( !Auth::check() )
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                          @else
+                            <li class="nav-item">
+                              <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                    <a class="nav-link" onclick="event.preventDefault();
+                                    this.closest('form').submit();" style="cursor: pointer;">Log Out</a>
+                                </form>
+                              @endif
+                          </li>
                      </ul>
 
-                     <div class="searching-products">
-                         <button>Search Project</button>
-                     </div>
+                      <div class="searching-products">
+                          <button>Search Project</button>
+                      </div>
                    </div>
                  </div>
                </nav>

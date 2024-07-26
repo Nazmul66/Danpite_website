@@ -5,9 +5,19 @@
                 <div class="col-lg-3">
                     <div class="widget-1">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                            @if ( !empty($basicInfo->logo) )
+                              <img src="{{ asset($basicInfo->logo) }}" alt="" style="width: 200px;">
+                            @else
+                              <img src="{{ asset('public/asset/images/logo.png') }}" alt="" style="width: 200px;">
+                            @endif
                         </a>
-                        <p>{{ $basicInfo->address_optional }}</p>
+                        <p>
+                            @if ( !empty($basicInfo->address_optional) )
+                                {{ $basicInfo->address_optional }}
+                            @else
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil quos omnis libero tenetur praesentium aperiam!
+                            @endif
+                        </p>
                     </div>
                 </div>
 
@@ -79,9 +89,9 @@
                     <div class="widget-2">
                         <h4>Contact Us</h4>
                         <ul>
-                            <li><span>Address: </span>{{ $basicInfo->address }}</li>
-                            <li><span>Email: </span>{{ $basicInfo->email }}</li>
-                            <li><span>Phone: </span> {{ $basicInfo->phone }}</li>
+                            <li><span>Address: </span> @if( !empty($basicInfo->address) ) {{ $basicInfo->address }} @else Lorem ipsum dolor sit amet. @endif  </li>
+                            <li><span>Email: </span> @if( !empty($basicInfo->email) ) {{ $basicInfo->email }} @else admin@gmail.com @endif </li>
+                            <li><span>Phone: </span> 01868512081 @if( !empty($basicInfo->phone) ) {{ $basicInfo->phone }} @else @endif  </li>
                         </ul>
                     </div>
                 </div>

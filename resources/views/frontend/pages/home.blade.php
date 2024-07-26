@@ -19,7 +19,13 @@
       <div class="banner-poster">
         <div class="row">
           <div class="col-lg-6 col-xl-6" data-aos="fade-right" data-aos-duration="1500">
-                <h1>{{ $banner->title }}</h1>
+                <h1>
+                    @if ( !empty($banner->title) )
+                       {{ $banner->title }}
+                    @else
+                        "Demo Title"
+                    @endif
+                </h1>
 
                 <div class="form-field">
                   <form action="">
@@ -31,7 +37,11 @@
 
             <div class="col-lg-6 col-xl-6" data-aos="fade-left" data-aos-duration="1500">
               <div class="img-container">
-                 <img src="{{ asset($banner->banner_img) }}" alt="">
+                @if ( !empty($banner->banner_img) )
+                   <img src="{{ asset($banner->banner_img) }}" alt="">
+                @else
+                   <img src="{{ asset('public/asset/images/banner-image.png') }}" alt="">
+                @endif
               </div>
            </div>
         </div>
@@ -44,27 +54,43 @@
 <!-- About section start [Done] -->
 <section class="about-section">
     <div class="container">
-    <div class="row align-items-center">
-        <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
-            <div class="about-image">
-                <img src="{{ asset($about->image) }}" alt="">
-            </div>
-        </div>
-
-        <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
-            <div class="about-info">
-                <h1>{{ $about->title }}</h1>
-
-                <div class="about-contents">
-                    {!! $about->description !!}
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-xl-6 order-1 order-lg-0" data-aos="zoom-in-up" data-aos-duration="1500">
+                <div class="about-image">
+                    @if ( !empty($about->image) )
+                        <img src="{{ asset($about->image) }}" alt="">
+                    @else
+                        <img src="{{ asset('public/asset/images/about-image.jpg') }}" alt="">
+                    @endif
                 </div>
+            </div>
 
-                <a href="{{ $about->url }}">
-                    <button class="btn-join">Join Us</button>
-                </a>
+            <div class="col-lg-6 col-xl-6 order-0 order-lg-1"  data-aos="zoom-in-down" data-aos-duration="1500">
+                <div class="about-info">
+                    <h1>
+                        @if ( !empty($about->title) )
+                            {{ $about->title }}
+                        @else
+                            "Demo Title"
+                        @endif
+                    </h1>
+
+
+                    <div class="about-contents">
+                        @if ( !empty($about->description) )
+                            {!! $about->description !!}
+                        @else
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, architecto earum ducimus animi cum assumenda minus autem vitae numquam distinctio adipisci ad ratione deserunt fugiat.
+                        @endif
+                        
+                    </div>
+                    
+                    <a href="{{ !empty($about->url) && $about->url  }}">
+                        <button class="btn-join">Join Us</button>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!-- About section start -->
@@ -249,19 +275,40 @@
   <div class="container">
       <div class="pro-service-container">
             <div class="service-images" data-aos="fade-down-right" data-aos-duration="1500">
-                <img src="{{ asset($professional->image) }}" alt="">
+                @if ( !empty($professional->image) )
+                    <img src="{{ asset($professional->image) }}" alt="">
+                @else
+                    <img src="{{ asset('public/asset/images/paint-house.png') }}" alt="">
+                @endif
             </div>
 
             <div class="professional-service" data-aos="fade-down-left" data-aos-duration="1500">
-                <h5>{{ $professional->small_title }}</h5>
-                <h1>{{ $professional->main_title }}</h1>
+                <h5>
+                    @if ( !empty($professional->small_title) )
+                        {{ $professional->small_title }}
+                    @else
+                        "Demo Title"
+                    @endif
+                </h5>
+
+                <h1>
+                    @if ( !empty($professional->main_title) )
+                        {{ $professional->main_title }}
+                    @else
+                        "Demo Title"
+                    @endif
+                </h1>
 
                 <div class="professional-paragraph">
-                    {!! $professional->description !!}
+                    @if ( !empty($professional->description) )
+                         {!! $professional->description !!}
+                    @else
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate, temporibus facilis nulla est maxime, dolorem dolor fuga pariatur unde, non dolore obcaecati illo delectus.
+                    @endif
                 </div>
                 
 
-                <a href="{{ $professional->url }}">
+                <a href="{{ !empty($professional->url) && $professional->url  }}">
                     <button class="btn-watch">Watch Video</button>
                 </a>
             </div>
@@ -325,7 +372,12 @@
 
           <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1500">
               <div class="youtube-video">
-                  {!! $safety->youtube_url !!}
+                    @if ( !empty($safety->youtube_url) )
+                       {!! $safety->youtube_url !!}
+                    @else
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, ex. Deserunt sapiente officia iste nostrum reiciendis, ipsam, aliquid labore repudiandae voluptas voluptatum tempora, magni totam?
+                    @endif
+
               </div>
           </div>
       </div>
@@ -341,7 +393,11 @@
               <div class="col-lg-12">
                   <div class="emergency-details">
                       <h1><i class='bx bx-phone-call'></i> Need Emergency Painting? Call us 24/7 For Expert Help</h1>
-                      <a href="tel:">Call +{{ $basicInfo->phone }}</a>
+                      @if ( !empty($basicInfo->phone) )
+                            <a href="tel:">Call +{{ $basicInfo->phone }}</a>  
+                        @else
+                            <a href="tel:">Call +01772266995</a>
+                        @endif
                   </div>
               </div>
           </div>
