@@ -133,11 +133,11 @@ header{
    box-shadow: 0 0 20px rgba(35, 177, 77, 0.5);
 }
 
-.img-container{
+/* .img-container{
     position: absolute;
     top: 0;
     right: 0;
-}
+} */
 .img-container img{
    width: 100%;
 }

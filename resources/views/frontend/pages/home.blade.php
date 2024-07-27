@@ -7,7 +7,7 @@
 
 
 @push('meta-title')
-    Danpite Tech 
+    Danpite Tech
 @endpush
 
 
@@ -17,7 +17,7 @@
  <section class="banner-section">
     <div class="container">
       <div class="banner-poster">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col-lg-6 col-xl-6" data-aos="fade-right" data-aos-duration="1500">
                 <h1>
                     @if ( !empty($banner->title) )
@@ -82,9 +82,9 @@
                         @else
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias, architecto earum ducimus animi cum assumenda minus autem vitae numquam distinctio adipisci ad ratione deserunt fugiat.
                         @endif
-                        
+
                     </div>
-                    
+
                     <a href="{{ !empty($about->url) && $about->url  }}">
                         <button class="btn-join">Join Us</button>
                     </a>
@@ -200,11 +200,11 @@
                                     </div>
 
                                     <div class="action-service">
-                                        <a href=""><span>Read More</span> 
+                                        <a href=""><span>Read More</span>
                                             <i class='bx bx-right-arrow-alt'></i>
                                         </a>
 
-                                        <a href="tel:{{ $service->whatsapp }}"> 
+                                        <a href="tel:{{ $service->whatsapp }}">
                                             <button class="chat-btn">Chat Now</button>
                                         </a>
                                     </div>
@@ -306,7 +306,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae cupiditate, temporibus facilis nulla est maxime, dolorem dolor fuga pariatur unde, non dolore obcaecati illo delectus.
                     @endif
                 </div>
-                
+
 
                 <a href="{{ !empty($professional->url) && $professional->url  }}">
                     <button class="btn-watch">Watch Video</button>
@@ -394,7 +394,7 @@
                   <div class="emergency-details">
                       <h1><i class='bx bx-phone-call'></i> Need Emergency Painting? Call us 24/7 For Expert Help</h1>
                       @if ( !empty($basicInfo->phone) )
-                            <a href="tel:">Call +{{ $basicInfo->phone }}</a>  
+                            <a href="tel:">Call +{{ $basicInfo->phone }}</a>
                         @else
                             <a href="tel:">Call +01772266995</a>
                         @endif
@@ -443,7 +443,7 @@
                             <div class="review-content">
                                 <div class="review-content-head">
                                     <img src="{{ asset( $review->review_img ) }}" alt="">
-    
+
                                     <div class="review-ratings-deatils">
                                         <h4>{{ $review->name }}</h4>
                                         <div class="star-ratings">
@@ -469,7 +469,7 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <p>{{ $review->description }}</p>
                             </div>
                         @endforeach
