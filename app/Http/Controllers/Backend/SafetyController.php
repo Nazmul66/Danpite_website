@@ -26,7 +26,52 @@ class SafetyController extends Controller
 
         $safety = new Safety();
 
-        $safety->youtube_url          = $request->youtube_url;
+        $safety->safty_content1          = $request->safty_content1;
+        $safety->safty_content2          = $request->safty_content2;
+        $safety->safty_content3          = $request->safty_content3;
+        $safety->safty_content4          = $request->safty_content4;
+
+        if( $request->file('safty_img1') ){
+            $safty_img1 = $request->file('safty_img1');
+
+            $imageName          = microtime('.') . '.' . $safty_img1->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img1->move($imagePath, $imageName);
+
+            $project->safty_img1   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img2') ){
+            $safty_img2 = $request->file('safty_img2');
+
+            $imageName          = microtime('.') . '.' . $safty_img2->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img2->move($imagePath, $imageName);
+
+            $project->safty_img1   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img3') ){
+            $safty_img3 = $request->file('safty_img3');
+
+            $imageName          = microtime('.') . '.' . $safty_img3->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img3->move($imagePath, $imageName);
+
+            $project->safty_img1   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img4') ){
+            $safty_img4 = $request->file('safty_img4');
+
+            $imageName          = microtime('.') . '.' . $safty_img4->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img4->move($imagePath, $imageName);
+
+            $project->safty_img1   = $imagePath . $imageName;
+        }
+
+        $safety->youtube_url             = $request->youtube_url;
 
         $safety->save();
 
@@ -45,6 +90,66 @@ class SafetyController extends Controller
     {
         $safety = Safety::find($id);
 
+        $safety->safty_content1          = $request->safty_content1;
+        $safety->safty_content2          = $request->safty_content2;
+        $safety->safty_content3          = $request->safty_content3;
+        $safety->safty_content4          = $request->safty_content4;
+
+        if( $request->file('safty_img1') ){
+            $safty_img1 = $request->file('safty_img1');
+
+            if( !is_null($safety->safty_img1) && file_exists($safety->safty_img1) ){
+                unlink($safety->safty_img1);
+             }
+
+            $imageName          = microtime('.') . '.' . $safty_img1->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img1->move($imagePath, $imageName);
+
+            $safety->safty_img1   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img2') ){
+            $safty_img2 = $request->file('safty_img2');
+
+            if( !is_null($safety->safty_img2) && file_exists($safety->safty_img2) ){
+                unlink($safety->safty_img2);
+             }
+
+            $imageName          = microtime('.') . '.' . $safty_img2->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img2->move($imagePath, $imageName);
+
+            $safety->safty_img2   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img3') ){
+            $safty_img3 = $request->file('safty_img3');
+
+            if( !is_null($safety->safty_img3) && file_exists($safety->safty_img3) ){
+                unlink($safety->safty_img3);
+            }
+
+            $imageName          = microtime('.') . '.' . $safty_img3->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img3->move($imagePath, $imageName);
+
+            $safety->safty_img3   = $imagePath . $imageName;
+        }
+
+        if( $request->file('safty_img4') ){
+            $safty_img4 = $request->file('safty_img4');
+
+            if( !is_null($safety->safty_img4) && file_exists($safety->safty_img4) ){
+                unlink($safety->safty_img4);
+            }
+
+            $imageName          = microtime('.') . '.' . $safty_img4->getClientOriginalExtension();
+            $imagePath          = 'public/backend/image/safty/';
+            $safty_img4->move($imagePath, $imageName);
+
+            $safety->safty_img4   = $imagePath . $imageName;
+        }
         $safety->youtube_url          = $request->youtube_url;
 
         $safety->save();

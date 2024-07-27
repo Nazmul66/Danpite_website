@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('safeties', function (Blueprint $table) {
             $table->id();
+            $table->string('safty_content1')->nullable();
+            $table->string('safty_content2')->nullable();
+            $table->string('safty_content3')->nullable();
+            $table->string('safty_content4')->nullable();
+            $table->string('safty_img1')->nullable();
+            $table->string('safty_img2')->nullable();
+            $table->string('safty_img3')->nullable();
+            $table->string('safty_img4')->nullable();
             $table->text('youtube_url')->nullable();
             $table->timestamps();
         });

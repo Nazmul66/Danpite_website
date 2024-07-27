@@ -349,23 +349,62 @@
           <div class="col-lg-5" data-aos="flip-left" data-aos-duration="1500">
              <div class="safety-service-container">
                   <div class="safety-service">
-                      <img src="{{ asset('public/asset/images/mask.png') }}" alt="">
-                      <h4>Ensuring Maskes</h4>
+                      @if ( !empty($safety->safty_img1) )
+                         <img src="{{ asset($safety->safty_img1) }}" alt="">
+                      @else
+                        <img src="{{ asset('public/asset/images/mask.png') }}" alt="">
+                      @endif
+
+
+                      @if ( !empty($safety->safty_content1) )
+                        <h4>{{ $safety->safty_content1 }}</h4>
+                      @else
+                        <h4>Ensuring Maskes</h4>
+                      @endif
                   </div>
 
                   <div class="safety-service">
-                      <img src="{{ asset('public/asset/images/phone.png') }}" alt="">
-                      <h4>24/7 Support</h4>
+                    @if ( !empty($safety->safty_img2) )
+                        <img src="{{ asset($safety->safty_img2) }}" alt="">
+                    @else
+                        <img src="{{ asset('public/asset/images/phone.png') }}" alt="">
+                    @endif
+
+
+                    @if ( !empty($safety->safty_content2) )
+                       <h4>{{ $safety->safty_content2 }}</h4>
+                    @else
+                       <h4>24/7 Support</h4>
+                    @endif
                   </div>
 
                   <div class="safety-service">
-                      <img src="{{ asset('public/asset/images/hand.png') }}" alt="">
-                      <h4>Sanitising hands & Equipment</h4>
+                    @if ( !empty($safety->safty_img3) )
+                        <img src="{{ asset($safety->safty_img3) }}" alt="">
+                    @else
+                        <img src="{{ asset('public/asset/images/hand.png') }}" alt="">
+                    @endif
+
+
+                    @if ( !empty($safety->safty_content3) )
+                        <h4>{{ $safety->safty_content3 }}</h4>
+                    @else
+                        <h4>Sanitising hands & Equipment</h4>
+                    @endif
                   </div>
 
                   <div class="safety-service">
-                      <img src="{{ asset('public/asset/images/open-hands.png') }}" alt="">
-                      <h4>Ensuring Gloves</h4>
+                    @if ( !empty($safety->safty_img4) )
+                        <img src="{{ asset($safety->safty_img4) }}" alt="">
+                    @else
+                        <img src="{{ asset('public/asset/images/open-hands.png') }}" alt="">
+                    @endif
+
+                    @if ( !empty($safety->safty_content4) )
+                        <h4>{{ $safety->safty_content4 }}</h4>
+                    @else
+                        <h4>Ensuring Gloves</h4>
+                    @endif
                   </div>
              </div>
           </div>
