@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('price_plans', function (Blueprint $table) {
             $table->id();
+            $table->integer('service_id')->nullable();
             $table->string('price_title');
             $table->string('price_package');
             $table->text('price_desc');

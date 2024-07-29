@@ -1,11 +1,12 @@
 @extends('backend.layout.master')
 
 @push('meta-title')
-        Dashboard | Service Section
+        Dashboard | Pricing-plan
 @endpush
 
 @push('add-css')
-     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.1/ckeditor5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 @endpush
 
 
@@ -14,24 +15,23 @@
  <div class="row">
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h5>Service Table</h5>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Service</button>
+            <h5>Pricing Plan Table</h5>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Pricing Plan</button>
         </div>
 
 
         <div class="card-body">
           <div class="table-responsive text-nowrap">
-            <table class="table table-bordered" id="serviceTables">
+            <table class="table table-bordered" id="pricePlanTables">
               <thead>
                 <tr>
                   <th>#SL.</th>
-                  <th>Image</th>
-                  <th>Title</th>
-                  <th>Ratings</th>
+                  <th>Pricing Title</th>
+                  <th>Pricing Package</th>
+                  <th>Pricing Description</th>
+                  <th>Color Theme</th>
                   <th>Whatsapp</th>
-                  <th>Pricing Add</th>
-                  <th>Projects Add</th>
-                  <th>status</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -47,56 +47,64 @@
  </div>
 
 
-    {{-- Create Category --}}
+    {{-- Create Pricing Plan --}}
     <div class="modal fade" id="create_Modal" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Create New Service</h5>
+            <h5 class="modal-title" id="exampleModalLabel3">Create Pricing Plan</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
-                <form id="createForm" enctype="multipart/form-data">
-                    @csrf
+            <form id="createForm" enctype="multipart/form-data">
+                @csrf
 
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label for="title" class="form-label">Service Title</label>
-                                <input type="text" id="title" name="title" class="form-control" placeholder="Service Title">
-                            </div>
-
-                            <div class="col mb-3">
-                                <label for="service_img" class="form-label">Service Image</label>
-                                <input class="form-control" type="file" name="service_img" id="service_img">
-                            </div>
+                    <div class="row">
+                        <div class="col mb-3">
+                           <label for="price_title" class="form-label">Price Title</label>
+                           <input type="text" id="price_title" name="price_title" class="form-control" placeholder="Price Title">
                         </div>
 
-                        <div class="row">
-                            <div class="col mb-3">
-                                <label for="ratings" class="form-label">Ratings</label>
-                                <input type="text" id="ratings" name="ratings" class="form-control" placeholder="ratings">
-                            </div>
+                        <input type="text" name="id" value="{{ $id }}" hidden>
 
-                            <div class="col mb-3">
-                                <label for="whatsapp" class="form-label">Whatsapp Number</label>
-                                <input type="text" id="whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp Number">
-                            </div>
+                        <div class="col mb-3">
+                            <label for="price_package" class="form-label">Price Package</label>
+                            <input type="text" id="price_package" name="price_package" class="form-control" placeholder="Price Package">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col mb-3">
+                           <label for="color_theme" class="form-label">Color Theme</label>
+                           <input class="form-control" type="color" name="color_theme" value="#666EE8" id="color_theme">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <select class="form-select" id="status" name="status">
-                                <option selected="" disabled value="">Open this select menu</option>
-                                <option value="1">Active</option>
-                                <option value="2">Deactive</option>
-                            </select>
+                            <label for="whatsapp" class="form-label">Whatsapp</label>
+                            <input type="text" id="whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp....">
                         </div>
+                    </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="price_desc">Description</label>
+                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                        <textarea id="price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden></textarea>
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status">
+                            <option selected="" disabled value="">Open this select menu</option>
+                            <option value="1">Active</option>
+                            <option value="0">Deactive</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -109,8 +117,8 @@
         <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel3">Update Banner</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="exampleModalLabel3">Update Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
             <div class="modal-body">
@@ -122,41 +130,47 @@
 
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="up_title" class="form-label">Service Title</label>
-                            <input type="text" id="up_title" name="title" class="form-control" placeholder="Service Title">
+                           <label for="up_price_title" class="form-label">Price Title</label>
+                           <input type="text" id="up_price_title" name="price_title" class="form-control" placeholder="Price Title">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="service_img" class="form-label">Service Image</label>
-                            <input class="form-control" type="file" name="service_img" id="service_img">
-
-                            <div id="imageShow"></div>
+                            <label for="up_price_package" class="form-label">Price Package</label>
+                            <input type="text" id="up_price_package" name="price_package" class="form-control" placeholder="Price Package">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="up_ratings" class="form-label">Ratings</label>
-                            <input type="text" id="up_ratings" name="ratings" class="form-control" placeholder="ratings">
+                           <label for="color_theme" class="form-label">Color Theme</label>
+                           <input class="form-control" type="color" name="color_theme" id="up_color_theme">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="up_whatsapp" class="form-label">Whatsapp Number</label>
-                            <input type="text" id="up_whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp Number">
+                            <label for="up_whatsapp" class="form-label">Whatsapp</label>
+                            <input type="text" id="up_whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp....">
                         </div>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label" for="up_price_desc">Description</label>
+                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                        <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
+                        <div id="long-text"></div>
+                    </div>
+
+
                     <div class="col mb-3">
-                        <label for="up_status" class="form-label">Status</label>
-                        <select class="form-select" id="up_status" name="status">
-                            <option selected="" disabled value="">Open this select menu</option>
-                            <option value="1">Active</option>
-                            <option value="2">Deactive</option>
-                        </select>
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" name="status" id="up_status">
+                                <option selected="" disabled>Open this select menu</option>
+                                <option value="1">Active</option>
+                                <option value="0">Deactive</option>
+                            </select>
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close </button>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </form>
@@ -178,13 +192,13 @@
      $(document).ready(function(){
 
         // show all data
-        let serviceTables = $('#serviceTables').DataTable({
+        let pricePlanTables = $('#pricePlanTables').DataTable({
             order: [
                 [0, 'asc']
             ],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.get-service') }}",
+            ajax: "{{ route('admin.get-price-plan') }}" + id,
             // pageLength: 30,
 
             columns: [
@@ -195,38 +209,25 @@
                     searchable: false
                 },
                 {
-                    data: 'service_img',
-                    orderable: false,
-                    searchable: false
+                    data: 'price_title'
                 },
                 {
-                    data: 'title'
+                    data: 'price_package'
                 },
                 {
-                    data: 'ratings'
+                    data: 'price_desc'
+                },
+                {
+                    data: 'color_theme'
                 },
                 {
                     data: 'whatsapp'
                 },
                 {
-                    data: 'pricing_add',
-                    orderable: false,
-                    searchable: false
+                    data: 'status'
                 },
                 {
-                    data: 'project_add',
-                    orderable: false,
-                    searchable: false
-                },
-                {
-                    data: 'status',
-                    orderable: false,
-                    searchable: false
-                },
-                {
-                    data: 'action',
-                    orderable: false,
-                    searchable: false
+                    data: 'action'
                 }
             ]
         });
@@ -241,14 +242,14 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('admin.service.status') }}",
+                url: "{{ route('admin.price-plan.status') }}",
                 data: {
                     // '_token': token,
                     id: id,
                     status: status
                 },
                 success: function (res) {
-                    serviceTables.ajax.reload();
+                    pricePlanTables.ajax.reload();
 
                     if (res.status == 1) {
                         swal.fire(
@@ -271,8 +272,7 @@
             })
         })
 
-
-        // Create Banner
+        // Create pricePlan
         $('#createForm').submit(function (e) {
             e.preventDefault();
 
@@ -283,16 +283,16 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ route('admin.service.store') }}",
+                url: "{{ route('admin.price-plan.store') }}",
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
                 success: function (res) {
-                    // console.log(res);
+                    console.log(res);
                     if (res.status === true) {
                         $('#create_Modal').modal('hide');
                         $('#createForm')[0].reset();
-                        serviceTables.ajax.reload();
+                        pricePlanTables.ajax.reload();
 
                         swal.fire({
                             title: "Success",
@@ -312,8 +312,7 @@
             });
         })
 
-
-        // Edit Banner
+        // Edit pricePlan
         $(document).on("click", '#editButton', function (e) {
             let id = $(this).attr('data-id');
             // alert(id);
@@ -323,7 +322,7 @@
                 // headers: {
                 //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 // },
-                url: "{{ url('admin/service') }}/" + id + "/edit",
+                url: "{{ url('admin/price-plan') }}/" + id + "/edit",
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
                 success: function (res) {
@@ -331,15 +330,26 @@
                     // console.log(data)
 
                     $('#up_id').val(data.id);
-                    $('#up_title').val(data.title);
-                    $('#imageShow').html('');
-                    $('#imageShow').append(`
-                        <img src={{ asset("`+ data.service_img +`") }} alt="" style="width: 75px;">
-                    `);
-                    $('#up_ratings').val(data.ratings);
+                    $('#up_price_title').val(data.price_title);
+                    $('#up_price_package').val(data.price_package);
+                    $('#up_color_theme').val(data.color_theme);
                     $('#up_whatsapp').val(data.whatsapp);
+                    $('#up_price_desc').val(data.price_desc);
                     $('#up_status').val(data.status);
+                    // $('#long-text').append(`
+                    //       <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden>`+ data.price_desc +`</textarea>
+                    // `);
 
+                    // Update CKEditor with fetched data
+                    ClassicEditor
+                        .create(document.querySelector('#up_price_desc'))
+                        .then(editor => {
+                            window.editor = editor;
+                            editor.setData(data.price_desc);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
                 },
                 error: function (error) {
                     console.log('error');
@@ -349,7 +359,7 @@
         })
 
 
-        // Update Banner
+        // Update pricePlan
         $("#updateForm").submit(function (e) {
             e.preventDefault();
 
@@ -361,7 +371,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "{{ url('admin/service') }}/" + id,
+                url: "{{ url('admin/price-plan') }}/" + id,
                 data: formData,
                 processData: false,  // Prevent jQuery from processing the data
                 contentType: false,  // Prevent jQuery from setting contentType
@@ -369,13 +379,13 @@
 
                     swal.fire({
                         title: "Success",
-                        text: "Service Edited",
+                        text: "Price-plan Edited",
                         icon: "success"
                     })
 
                     $('#editModal').modal('hide');
                     $('#updateForm')[0].reset();
-                    serviceTables.ajax.reload();
+                    pricePlanTables.ajax.reload();
                 },
                 error: function (err) {
                     console.error('Error:', err);
@@ -390,7 +400,7 @@
         });
 
 
-        // Delete Banner
+        // Delete pricePlan
         $(document).on("click", "#deleteBtn", function () {
             let id = $(this).data('id')
 
@@ -408,7 +418,7 @@
                     $.ajax({
                         type: 'DELETE',
 
-                        url: "{{ url('admin/service') }}/" + id,
+                        url: "{{ url('admin/price-plan') }}/" + id,
                         data: {
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -421,7 +431,7 @@
                                 icon: "success"
                             });
 
-                            serviceTables.ajax.reload();
+                            pricePlanTables.ajax.reload();
                         },
                         error: function (err) {
                             console.log('error')
@@ -438,5 +448,18 @@
     });
 
  </script>
+
+<script src="{{asset('https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js')}}"></script>
+
+<script>
+    ClassicEditor
+        .create(document.querySelector('#price_desc'))
+        .then(newEditor => {
+            jReq = newEditor;
+        })
+        .catch(error => {
+            console.error(error);
+    });
+</script>
 
 @endpush

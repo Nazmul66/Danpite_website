@@ -31,6 +31,12 @@ class ServiceController extends Controller
              ->addColumn('rating', function ($service) {
                 return '<span class="badge rounded-pill bg-warning">'. $service->ratings .'<i class="bx bxs-star" style="font-size: 12px; margin-left: 4px;"></i></span> ';
              })
+             ->addColumn('pricing_add', function ($service) {
+                 return '<a href="pricing/'. $service->id .'" class="btn btn-primary">Add</a>';
+            })
+             ->addColumn('project_add', function ($service) {
+                 return '<a href="projects/'. $service->id .'" class="btn btn-primary">Add</a>';
+            })
              ->addColumn('status', function ($service) {
                 if ($service->status == 1) {
                     return '<span class="badge bg-label-primary cursor-pointer" id="status" data-id="'.$service->id.'" data-status="'.$service->status.'">Active</span>';
@@ -51,7 +57,7 @@ class ServiceController extends Controller
                 </div>';
             })
 
-            ->rawColumns(['service_img', 'rating', 'status', 'action'])
+            ->rawColumns(['service_img', 'rating', 'status', 'pricing_add', 'project_add', 'action'])
             ->make(true);
     }
 
@@ -163,5 +169,15 @@ class ServiceController extends Controller
         $service->delete();
 
         return response()->json(['message' => 'Service has been deleted.'], 200);
+    }
+
+    public function pricing_service(string $id)
+    {
+       return view('backend.pages.service.pricing-id', compact('id'));
+    }
+
+    public function projects_service(string $id)
+    {
+        return view('backend.pages.service.project-id', compact('id'));
     }
 }

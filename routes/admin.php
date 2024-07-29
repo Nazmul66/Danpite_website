@@ -69,6 +69,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], functi
     Route::get('/get-service',[ServiceController::class,'getData'])->name('admin.get-service');
     Route::post('/service/status',[ServiceController::class,'adminServiceStatus'])->name('admin.service.status');
 
+    Route::get('/pricing/{id}',[ServiceController::class,'pricing_service'])->name('pricing.service');
+    Route::get('/projects/{id}',[ServiceController::class,'projects_service'])->name('projects.service');
+
 
     //____ BasicInfo  ____//
     Route::resource('basic-info', BasicInfoController::class)->names('admin.basic-info');
@@ -84,5 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], functi
 
     //____ Safety  ____//
     Route::resource('safety', SafetyController::class)->names('admin.safety');
+
+
 });
 
