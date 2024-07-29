@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Service;
 use DataTables;
 
 class ProjectController extends Controller
@@ -14,7 +15,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.project.index');
+        $services = Service::where('status', 1)->get();
+        return view('backend.pages.project.index', compact('services'));
     }
 
     public function getData(Request $request)
@@ -75,6 +77,7 @@ class ProjectController extends Controller
         $project->name                = $request->name;
         $project->url                 = $request->url;
         $project->status              = $request->status;
+        $project->service_id          = $request->service_id;
 
         if( $request->file('project_img') ){
             $project_img = $request->file('project_img');
@@ -133,6 +136,7 @@ class ProjectController extends Controller
         $project->name                = $request->name;
         $project->url                 = $request->url;
         $project->status              = $request->status;
+        $project->service_id          = $request->service_id;
 
         if( $request->file('project_img') ){
             $project_img = $request->file('project_img');

@@ -85,6 +85,16 @@
                             </div>
                         </div>
 
+                        <div class="col mb-3">
+                            <label for="service_id" class="form-label">Service Name</label>
+                            <select class="form-select" name="service_id" id="service_id">
+                                <option selected="" disabled value="">Select The Service Name</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -140,6 +150,16 @@
                                 <option value="2">Deactive</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="col mb-3">
+                        <label for="service_id" class="form-label">Service Name</label>
+                        <select class="form-select" name="service_id" id="up_service_id">
+                            <option selected="" disabled value="">Select The Service Name</option>
+                            @foreach ($services as $service)
+                                <option value="{{ $service->id }}">{{ $service->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="modal-footer">
@@ -306,6 +326,7 @@
                     `);
                     $('#up_url').val(data.url);
                     $('#up_status').val(data.status);
+                    $('#up_service_id').val(data.service_id);
 
                 },
                 error: function (error) {

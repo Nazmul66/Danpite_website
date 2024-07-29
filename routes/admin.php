@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], functi
     Route::post('/service/status',[ServiceController::class,'adminServiceStatus'])->name('admin.service.status');
 
     Route::get('/pricing/{id}',[ServiceController::class,'pricing_service'])->name('pricing.service');
+    Route::get('/get-pricing-data/{id}',[ServiceController::class,'get_all_pricing_service'])->name('get-pricing.data');
     Route::get('/projects/{id}',[ServiceController::class,'projects_service'])->name('projects.service');
 
 

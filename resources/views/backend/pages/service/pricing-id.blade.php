@@ -16,7 +16,6 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5>Pricing Plan Table</h5>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_Modal">Add Pricing Plan</button>
         </div>
 
 
@@ -26,13 +25,13 @@
               <thead>
                 <tr>
                   <th>#SL.</th>
-                  <th>Pricing Title</th>
+                  {{-- <th>Pricing Title</th>
                   <th>Pricing Package</th>
                   <th>Pricing Description</th>
                   <th>Color Theme</th>
                   <th>Whatsapp</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th>Action</th> --}}
                 </tr>
               </thead>
 
@@ -45,139 +44,6 @@
         </div>
     </div>
  </div>
-
-
-    {{-- Create Pricing Plan --}}
-    <div class="modal fade" id="create_Modal" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Create Pricing Plan</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-            <form id="createForm" enctype="multipart/form-data">
-                @csrf
-
-                    <div class="row">
-                        <div class="col mb-3">
-                           <label for="price_title" class="form-label">Price Title</label>
-                           <input type="text" id="price_title" name="price_title" class="form-control" placeholder="Price Title">
-                        </div>
-
-                        <input type="text" name="id" value="{{ $id }}" hidden>
-
-                        <div class="col mb-3">
-                            <label for="price_package" class="form-label">Price Package</label>
-                            <input type="text" id="price_package" name="price_package" class="form-control" placeholder="Price Package">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col mb-3">
-                           <label for="color_theme" class="form-label">Color Theme</label>
-                           <input class="form-control" type="color" name="color_theme" value="#666EE8" id="color_theme">
-                        </div>
-
-                        <div class="col mb-3">
-                            <label for="whatsapp" class="form-label">Whatsapp</label>
-                            <input type="text" id="whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp....">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" for="price_desc">Description</label>
-                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
-                        <textarea id="price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden></textarea>
-                    </div>
-
-                    <div class="col mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" name="status">
-                            <option selected="" disabled value="">Open this select menu</option>
-                            <option value="1">Active</option>
-                            <option value="0">Deactive</option>
-                        </select>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-     {{-- Update Category --}}
-    <div class="modal fade" id="editModal" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel3">Update Category</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-            <div class="modal-body">
-                <form id="updateForm" enctype="multipart/form-data">
-                    @csrf
-                    @method("PUT")
-
-                    <input type="text" id="up_id" name="id" hidden>
-
-                    <div class="row">
-                        <div class="col mb-3">
-                           <label for="up_price_title" class="form-label">Price Title</label>
-                           <input type="text" id="up_price_title" name="price_title" class="form-control" placeholder="Price Title">
-                        </div>
-
-                        <div class="col mb-3">
-                            <label for="up_price_package" class="form-label">Price Package</label>
-                            <input type="text" id="up_price_package" name="price_package" class="form-control" placeholder="Price Package">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col mb-3">
-                           <label for="color_theme" class="form-label">Color Theme</label>
-                           <input class="form-control" type="color" name="color_theme" id="up_color_theme">
-                        </div>
-
-                        <div class="col mb-3">
-                            <label for="up_whatsapp" class="form-label">Whatsapp</label>
-                            <input type="text" id="up_whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp....">
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" for="up_price_desc">Description</label>
-                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
-                        <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
-                        <div id="long-text"></div>
-                    </div>
-
-
-                    <div class="col mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <select class="form-select" name="status" id="up_status">
-                                <option selected="" disabled>Open this select menu</option>
-                                <option value="1">Active</option>
-                                <option value="0">Deactive</option>
-                            </select>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close </button>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        </div>
-    </div>
 
 @endsection
 
@@ -198,7 +64,7 @@
             ],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.get-price-plan') }}" + id,
+            ajax: "{{ url('admin/get-pricing-data') }}/" + {{ $id }},
             // pageLength: 30,
 
             columns: [
@@ -208,27 +74,35 @@
                     orderable: false,
                     searchable: false
                 },
-                {
-                    data: 'price_title'
-                },
-                {
-                    data: 'price_package'
-                },
-                {
-                    data: 'price_desc'
-                },
-                {
-                    data: 'color_theme'
-                },
-                {
-                    data: 'whatsapp'
-                },
-                {
-                    data: 'status'
-                },
-                {
-                    data: 'action'
-                }
+                // {
+                //     data: 'price_title'
+                // },
+                // {
+                //     data: 'price_package'
+                // },
+                // {
+                //     data: 'price_desc',
+                //     orderable: false,
+                //     searchable: false
+                // },
+                // {
+                //     data: 'color_theme',
+                //     orderable: false,
+                //     searchable: false
+                // },
+                // {
+                //     data: 'whatsapp'
+                // },
+                // {
+                //     data: 'status',
+                //     orderable: false,
+                //     searchable: false
+                // },
+                // {
+                //     data: 'action',
+                //     orderable: false,
+                //     searchable: false
+                // }
             ]
         });
 

@@ -23,7 +23,7 @@ class ServiceController extends Controller
 
         // dd($categories);
 
-        return DataTables::of($services)
+        return DataTables::of( $services )
              ->addIndexColumn()
              ->addColumn('service_img', function ($service) {
                 return '<img src="'. asset($service->service_img) .'" alt="" style="width: 65px;">';
@@ -176,8 +176,58 @@ class ServiceController extends Controller
        return view('backend.pages.service.pricing-id', compact('id'));
     }
 
-    public function projects_service(string $id)
+
+    public function get_all_pricing_service(string $id)
     {
-        return view('backend.pages.service.project-id', compact('id'));
+        $services = Service::all();
+
+        dd($id);
+        // dd($categories);
+
+        return DataTables::of( $services )
+        ->addIndexColumn()
+        ->make(true);
+
+        // return DataTables::of( $services )
+        //      ->addIndexColumn()
+        //      ->addColumn('service_img', function ($service) {
+        //         return '<img src="'. asset($service->service_img) .'" alt="" style="width: 65px;">';
+        //      })
+        //      ->addColumn('rating', function ($service) {
+        //         return '<span class="badge rounded-pill bg-warning">'. $service->ratings .'<i class="bx bxs-star" style="font-size: 12px; margin-left: 4px;"></i></span> ';
+        //      })
+        //      ->addColumn('pricing_add', function ($service) {
+        //          return '<a href="pricing/'. $service->id .'" class="btn btn-primary">Add</a>';
+        //     })
+        //      ->addColumn('project_add', function ($service) {
+        //          return '<a href="projects/'. $service->id .'" class="btn btn-primary">Add</a>';
+        //     })
+        //      ->addColumn('status', function ($service) {
+        //         if ($service->status == 1) {
+        //             return '<span class="badge bg-label-primary cursor-pointer" id="status" data-id="'.$service->id.'" data-status="'.$service->status.'">Active</span>';
+        //         } else {
+        //             return '<span class="badge bg-label-danger cursor-pointer" id="status" data-id="'.$service->id.'" data-status="'.$service->status.'">Deactive</span>';
+        //         }
+        //     })
+        //     ->addColumn('action', function ($service) {
+        //         return '
+        //         <div class="">
+        //             <button type="button" class="btn_edit" id="editButton" data-id="' . $service->id . '" data-bs-toggle="modal" data-bs-target="#editModal">
+        //                 <i class="bx bx-edit-alt"></i>
+        //             </button>
+
+        //             <button type="button" id="deleteBtn" data-id="' . $service->id . '" class="btn_delete">
+        //                 <i class="bx bx-trash"></i>
+        //             </button>
+        //         </div>';
+        //     })
+
+        //     ->rawColumns(['service_img', 'rating', 'status', 'pricing_add', 'project_add', 'action'])
+        //     ->make(true);
     }
+
+    // public function projects_service(string $id)
+    // {
+    //     return view('backend.pages.service.project-id', compact('id'));
+    // }
 }

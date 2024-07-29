@@ -84,19 +84,31 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" name="status">
+                                <option selected="" disabled value="">Open this select menu</option>
+                                <option value="1">Active</option>
+                                <option value="0">Deactive</option>
+                            </select>
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="service_id" class="form-label">Service Name</label>
+                            <select class="form-select" name="service_id" id="service_id">
+                                <option selected="" disabled value="">Select The Service Name</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="mb-3">
                         <label class="form-label" for="price_desc">Description</label>
                         {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
                         <textarea id="price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden></textarea>
-                    </div>
-
-                    <div class="col mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <select class="form-select" id="status" name="status">
-                            <option selected="" disabled value="">Open this select menu</option>
-                            <option value="1">Active</option>
-                            <option value="0">Deactive</option>
-                        </select>
                     </div>
 
                     <div class="modal-footer">
@@ -150,21 +162,32 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label" for="up_price_desc">Description</label>
-                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
-                        <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
-                        <div id="long-text"></div>
-                    </div>
-
-
-                    <div class="col mb-3">
+                    <div class="row">
+                        <div class="col mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" name="status" id="up_status">
                                 <option selected="" disabled>Open this select menu</option>
                                 <option value="1">Active</option>
                                 <option value="0">Deactive</option>
                             </select>
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="service_id" class="form-label">Service Name</label>
+                            <select class="form-select" name="service_id" id="up_service_id">
+                                <option selected="" disabled value="">Select The Service Name</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                     </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="up_price_desc">Description</label>
+                        {{-- When using ck editor must be add ( 'hidden' ==> Attribute ) --}}
+                        <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....."></textarea>
+                        <div id="long-text"></div>
                     </div>
 
                     <div class="modal-footer">
@@ -334,6 +357,7 @@
                     $('#up_whatsapp').val(data.whatsapp);
                     $('#up_price_desc').val(data.price_desc);
                     $('#up_status').val(data.status);
+                    $('#up_service_id').val(data.service_id);
                     // $('#long-text').append(`
                     //       <textarea id="up_price_desc" class="form-control" name="price_desc" placeholder="Write Here....." hidden>`+ data.price_desc +`</textarea>
                     // `);

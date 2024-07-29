@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PricePlan;
+use App\Models\Service;
 use DataTables;
 
 class PricePlanController extends Controller
@@ -14,7 +15,8 @@ class PricePlanController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.price-plan.index');
+        $services = Service::where('status', 1)->get();
+        return view('backend.pages.price-plan.index', compact('services'));
     }
 
     public function getData(Request $request)
@@ -64,6 +66,7 @@ class PricePlanController extends Controller
         $pricePlan->color_theme      = $request->color_theme;
         $pricePlan->whatsapp         = $request->whatsapp;
         $pricePlan->status           = $request->status;
+        $pricePlan->service_id       = $request->service_id;
 
         $pricePlan->save();
 
@@ -115,6 +118,7 @@ class PricePlanController extends Controller
         $pricePlan->color_theme      = $request->color_theme;
         $pricePlan->whatsapp         = $request->whatsapp;
         $pricePlan->status           = $request->status;
+        $pricePlan->service_id       = $request->service_id;
 
         $pricePlan->save();
 
