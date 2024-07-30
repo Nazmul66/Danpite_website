@@ -31,6 +31,7 @@
                   <th>Whatsapp</th>
                   <th>Pricing Add</th>
                   <th>Projects Add</th>
+                  <th>Service Info Add</th>
                   <th>status</th>
                   <th>Action</th>
                 </tr>
@@ -215,6 +216,11 @@
                 },
                 {
                     data: 'project_add',
+                    orderable: false,
+                    searchable: false
+                },
+                {
+                    data: 'service_info',
                     orderable: false,
                     searchable: false
                 },

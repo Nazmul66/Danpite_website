@@ -10,23 +10,22 @@ use DataTables;
 
 class PricePlanController extends Controller
 {
-   /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index_pricing_service(string $id)
     {
-        $services = Service::where('status', 1)->get();
-        return view('backend.pages.price-plan.index', compact('services'));
+        return view('backend.pages.service.pricing-section', compact('id'));
     }
 
-    public function getData(Request $request)
+
+    public function get_all_pricing_service(string $id)
     {
-        $pricePlans = PricePlan::all();
+        // dd($id);
+        $pricePlans = PricePlan::where('service_id', $id)->get();
 
-        // dd($categories);
-
-        return DataTables::of($pricePlans)
+        return DataTables::of( $pricePlans )
              ->addIndexColumn()
+             ->addColumn('service-name', function ($pricePlan){
+                return Service::where('id', $pricePlan->service_id)->first()->title;
+             })
              ->addColumn('status', function ($pricePlan) {
                 if ($pricePlan->status == 1) {
                     return '<span class="badge bg-label-primary cursor-pointer" id="status" data-id="'.$pricePlan->id.'" data-status="'.$pricePlan->status.'">Active</span>';
@@ -34,10 +33,10 @@ class PricePlanController extends Controller
                     return '<span class="badge bg-label-danger cursor-pointer" id="status" data-id="'.$pricePlan->id.'" data-status="'.$pricePlan->status.'">Deactive</span>';
                 }
             })
-            ->addColumn('action', function ($pricePlan) {
+            ->addColumn('action', function ( $pricePlan ) {
                 return '
                 <div class="">
-                    <button type="button" class="btn_edit" id="editButton" data-id="' . $pricePlan->id . '" data-bs-toggle="modal" data-bs-target="#editModal">
+                    <button type="button" class="btn_edit" id="editButton" data-id="' . $pricePlan->id . '"data-bs-toggle="modal" data-bs-target="#editModal">
                         <i class="bx bx-edit-alt"></i>
                     </button>
 
@@ -51,15 +50,13 @@ class PricePlanController extends Controller
             ->make(true);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // dd($request->all());
 
         $pricePlan = new PricePlan();
 
+        $pricePlan->service_id       = $pricePlan->service_id;
         $pricePlan->price_title      = $request->price_title;
         $pricePlan->price_package    = $request->price_package;
         $pricePlan->price_desc       = $request->price_desc;
@@ -137,3 +134,4 @@ class PricePlanController extends Controller
         return response()->json(['message' => 'Price-Plan has been deleted.'], 200);
     }
 }
+

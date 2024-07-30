@@ -10,43 +10,42 @@ use DataTables;
 
 class ProjectController extends Controller
 {
-       /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index_project_service(string $id)
     {
-        $services = Service::where('status', 1)->get();
-        return view('backend.pages.project.index', compact('services'));
+        return view('backend.pages.service.project-section', compact('id'));
     }
 
-    public function getData(Request $request)
-    {
-        $projects = Project::all();
 
-        // dd($categories);
+    public function get_all_project_service(string $id)
+    {
+        // dd($id);
+        $projects = Project::where('service_id', $id)->get();
 
         return DataTables::of($projects)
-             ->addIndexColumn()
-             ->addColumn('project_img', function ($project) {
-                return '<img src="'. asset($project->project_img) .'" alt="" style="width: 65px;">';
-             })
-             ->addColumn('name', function ($project) {
-                return '<span class="badge bg-label-info">'. $project->name .'</span>';
-             })
-             ->addColumn('url', function ($project) {
-                if( !is_null($project->url) ){
-                    return '<span class="badge rounded-pill bg-label-primary">'. $project->url .'</span>';
-                }
-                else{
-                    return '<span class="badge rounded-pill bg-label-danger">N/A</span>';
-                }
-             })
-             ->addColumn('status', function ($project) {
-                if ($project->status == 1) {
-                    return '<span class="badge bg-label-primary cursor-pointer" id="status" data-id="'.$project->id.'" data-status="'.$project->status.'">Active</span>';
-                } else {
-                    return '<span class="badge bg-label-danger cursor-pointer" id="status" data-id="'.$project->id.'" data-status="'.$project->status.'">Deactive</span>';
-                }
+                ->addIndexColumn()
+                ->addColumn('service-name', function ($project){
+                    return Service::where('id', $project->service_id)->first()->title;
+                })
+                ->addColumn('project_img', function ($project) {
+                    return '<img src="'. asset($project->project_img) .'" alt="" style="width: 65px;">';
+                })
+                ->addColumn('name', function ($project) {
+                    return '<span class="badge bg-label-info">'. $project->name .'</span>';
+                })
+                ->addColumn('url', function ($project) {
+                    if( !is_null($project->url) ){
+                        return '<span class="badge rounded-pill bg-label-primary">'. $project->url .'</span>';
+                    }
+                    else{
+                        return '<span class="badge rounded-pill bg-label-danger">N/A</span>';
+                    }
+                })
+                ->addColumn('status', function ($project) {
+                    if ($project->status == 1) {
+                        return '<span class="badge bg-label-primary cursor-pointer" id="status" data-id="'.$project->id.'" data-status="'.$project->status.'">Active</span>';
+                    } else {
+                        return '<span class="badge bg-label-danger cursor-pointer" id="status" data-id="'.$project->id.'" data-status="'.$project->status.'">Deactive</span>';
+                    }
             })
             ->addColumn('action', function ($project) {
                 return '
@@ -61,19 +60,17 @@ class ProjectController extends Controller
                 </div>';
             })
 
-            ->rawColumns(['name', 'url', 'project_img', 'status', 'action'])
+            ->rawColumns(['name', 'url', 'project_img', 'service-name', 'status', 'action'])
             ->make(true);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // dd($request->all());
 
         $project = new Project();
 
+        $project->service_id          = $project->service_id;
         $project->name                = $request->name;
         $project->url                 = $request->url;
         $project->status              = $request->status;
@@ -133,6 +130,7 @@ class ProjectController extends Controller
 
         $project = Project::find($id);
 
+        $project->service_id          = $project->service_id;
         $project->name                = $request->name;
         $project->url                 = $request->url;
         $project->status              = $request->status;

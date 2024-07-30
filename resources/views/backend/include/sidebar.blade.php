@@ -146,7 +146,7 @@
 
 
       <!--  Price-Plan Section  -->
-      <li class="menu-item">
+      {{-- <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bxs-purchase-tag-alt"></i>
           <div data-i18n="Layouts">Price-Plan</div>
@@ -159,7 +159,7 @@
             </a>
           </li>
         </ul>
-      </li>
+      </li> --}}
 
 
       <!--  Safety Section  -->
@@ -214,7 +214,7 @@
 
 
       <!--  Project Showcase  -->
-      <li class="menu-item">
+      {{-- <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bxs-detail"></i>
           <div data-i18n="Layouts">Project Showcase</div>
@@ -227,7 +227,7 @@
             </a>
           </li>
         </ul>
-      </li>
+      </li> --}}
 
 
       <!--  Contact Section  -->

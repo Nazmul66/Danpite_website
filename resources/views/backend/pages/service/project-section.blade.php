@@ -58,6 +58,8 @@
                     @csrf
 
                         <div class="row">
+                            <input type="text" name="service_id" value="{{ $id }}" id="service_id" hidden>
+
                             <div class="col mb-3">
                                 <label for="name" class="form-label">Project Name</label>
                                 <input type="text" id="name" name="name" class="form-control" placeholder="Project name">
@@ -83,16 +85,6 @@
                                     <option value="2">Deactive</option>
                                 </select>
                             </div>
-                        </div>
-
-                        <div class="col mb-3">
-                            <label for="service_id" class="form-label">Service Name</label>
-                            <select class="form-select" name="service_id" id="service_id">
-                                <option selected="" disabled value="">Select The Service Name</option>
-                                @foreach ($services as $service)
-                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
-                                @endforeach
-                            </select>
                         </div>
 
                         <div class="modal-footer">
@@ -121,6 +113,7 @@
                     @method("PUT")
 
                     <input type="text" id="up_id" name="id" hidden>
+                    <input type="text" name="service_id" id="up_service_id" hidden>
 
                     <div class="row">
                         <div class="col mb-3">
@@ -152,16 +145,6 @@
                         </div>
                     </div>
 
-                    <div class="col mb-3">
-                        <label for="service_id" class="form-label">Service Name</label>
-                        <select class="form-select" name="service_id" id="up_service_id">
-                            <option selected="" disabled value="">Select The Service Name</option>
-                            @foreach ($services as $service)
-                                <option value="{{ $service->id }}">{{ $service->title }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -191,7 +174,7 @@
             ],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.get-project') }}",
+            ajax: "{{ url('admin/get-project-data') }}/" + {{ $id }},
             // pageLength: 30,
 
             columns: [
@@ -206,6 +189,9 @@
                 },
                 {
                     data: 'name'
+                },
+                {
+                    data: 'service-name'
                 },
                 {
                     data: 'url'

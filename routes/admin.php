@@ -14,6 +14,7 @@ use App\Http\Controllers\Backend\BasicInfoController;
 use App\Http\Controllers\Backend\ProfessionalController;
 use App\Http\Controllers\Backend\SafetyController;
 use App\Http\Controllers\Backend\PricePlanController;
+use App\Http\Controllers\Backend\ServiceInfoController;
 
 
 // Route::view('/admin/login', 'backend.pages.login.index');
@@ -46,22 +47,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], functi
     Route::post('/review/status',[ReviewController::class,'adminReviewStatus'])->name('admin.review.status');
 
 
-    //____  Project  ____//
-    Route::resource('project', ProjectController::class)->names('admin.project');
-    Route::get('/get-project',[ProjectController::class,'getData'])->name('admin.get-project');
-    Route::post('/project/status',[ProjectController::class,'adminProjectStatus'])->name('admin.project.status');
-
-
     //____  Contact  ____//
     Route::resource('contact', ContactController::class)->names('admin.contact');
     Route::get('/get-contact',[ContactController::class,'getData'])->name('admin.get-contact');
     Route::post('/contact/status',[ContactController::class,'adminContactStatus'])->name('admin.contact.status');
 
+    //____  Project  ____//
+    Route::resource('project', ProjectController::class)->names('admin.project');
+    Route::post('/project/status',[ProjectController::class,'adminProjectStatus'])->name('admin.project.status');
+    Route::get('/projects/{id}',[ProjectController::class,'index_project_service'])->name('index.project_service');
+    Route::get('/get-project-data/{id}',[ProjectController::class,'get_all_project_service'])->name('get-project.data');
+
+
+    //____  Service Info  ____//
+    Route::resource('service-info', ServiceInfoController::class)->names('admin.service-info');
+    Route::post('/service-info/status',[ServiceInfoController::class,'adminServiceInfoStatus'])->name('admin.service-info.status');
+    Route::get('/service-infos/{id}',[ServiceInfoController::class,'index_service_info'])->name('index.service.info');
+    Route::get('/get-service-info-data/{id}',[ServiceInfoController::class,'get_all_service_info'])->name('get-service-info.data');
+
 
     //____ Price Plan  ____//
     Route::resource('price-plan', PricePlanController::class)->names('admin.price-plan');
-    Route::get('/get-price-plan',[PricePlanController::class,'getData'])->name('admin.get-price-plan');
     Route::post('/price-plan/status',[PricePlanController::class,'adminPricePlanStatus'])->name('admin.price-plan.status');
+    Route::get('/pricing/{id}',[PricePlanController::class,'index_pricing_service'])->name('index.pricing_service');
+    Route::get('/get-pricing-data/{id}',[PricePlanController::class,'get_all_pricing_service'])->name('get-pricing.data');
 
 
     //____ Service  ____//
@@ -69,9 +78,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['Is_admin', 'auth']], functi
     Route::get('/get-service',[ServiceController::class,'getData'])->name('admin.get-service');
     Route::post('/service/status',[ServiceController::class,'adminServiceStatus'])->name('admin.service.status');
 
-    Route::get('/pricing/{id}',[ServiceController::class,'pricing_service'])->name('pricing.service');
-    Route::get('/get-pricing-data/{id}',[ServiceController::class,'get_all_pricing_service'])->name('get-pricing.data');
-    Route::get('/projects/{id}',[ServiceController::class,'projects_service'])->name('projects.service');
 
 
     //____ BasicInfo  ____//
