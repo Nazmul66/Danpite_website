@@ -1,7 +1,3 @@
-@php
-    // echo $about ;
-@endphp
-
 
 @extends('frontend.layout.master')
 
@@ -425,7 +421,7 @@
 <!-- Safety section end -->
 
 
-<!-- Emergency-call section start [Done] -->
+<!-- Emergency-call section start -->
    <section class="emergency-section">
       <div class="container">
           <div class="row">
@@ -445,7 +441,7 @@
 <!-- Emergency-call section end -->
 
 
-<!-- Logo section start [Done] -->
+<!-- Logo section start -->
   <section class="logo-section" id="galary">
       <div class="container">
           <div class="row">
@@ -470,7 +466,7 @@
 <!-- Logo section end -->
 
 
-<!-- Review section start [Done] -->
+<!-- Review section start -->
   <section class="review-section">
       <div class="container">
           <div class="row">

@@ -56,12 +56,12 @@
                         <form id="createForm" enctype="multipart/form-data">
                             @csrf
 
-                            <input type="text" name="service_id" value="{{ $id }}" id="service_id">
-                                <div class="row">
+                               <input type="text" name="service_id" value="{{ $id }}" id="service_id" hidden>
 
+                                <div class="row">
                                     <div class="col mb-3">
-                                    <label for="price_title" class="form-label">Price Title</label>
-                                    <input type="text" id="price_title" name="price_title" class="form-control" placeholder="Price Title">
+                                        <label for="price_title" class="form-label">Price Title</label>
+                                        <input type="text" id="price_title" name="price_title" class="form-control" placeholder="Price Title">
                                     </div>
 
                                     <div class="col mb-3">
