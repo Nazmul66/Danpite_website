@@ -98,6 +98,77 @@
 </section>
 <!-- service section end -->
 
+<!-- Description & Review Section start -->
+<section class="desc_review_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shuffle_tab_menu">
+                    <ul>
+                        <li class="shuffle_active">Description</li>
+                        <li>Review</li>
+                    </ul>
+                </div>
+
+                <div class="main-menu-body-content">
+                      <div class="shuffle_content content_active">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime dolor atque non qui voluptatem fuga amet ipsa, accusamus corporis libero! Illum dolores inventore veritatis, quod a explicabo cupiditate accusamus nobis voluptatem amet nam ullam expedita fuga nostrum, aperiam repellat molestias sit. Quae quos cum, neque perspiciatis, tempore, enim aliquam cupiditate recusandae eum optio nesciunt alias. Atque omnis veritatis totam fugiat deserunt fuga praesentium quaerat autem ducimus dicta. Animi soluta quod exercitationem blanditiis facere est similique!
+                      </div>
+
+                      <div class="shuffle_content">
+                         <div class="review_section">
+                            <h3>23 Reviews for This details page content.</h3>
+
+                            <div class="">
+                                <div class="review_details">
+                                    <div class="review_titles">
+                                        <h4>Jhon Doe</h4>
+                                        <p><span>27 Feb 2017</span> <span>10:57:43</span></p>
+                                    </div>
+
+                                    <div class="review_ratings">
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <span>(5)</span>
+                                    </div>
+
+                                    <div class="review_paragragh">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti enim reiciendis, ipsa culpa minima possimus quasi cumque? Odit omnis voluptatum labore sint odio, quo nisi?</p>
+                                    </div>
+                                </div>
+
+                                <div class="review_details">
+                                    <div class="review_titles">
+                                        <h4>Jhon Doe</h4>
+                                        <p><span>27 Feb 2017</span> <span>10:57:43</span></p>
+                                    </div>
+
+                                    <div class="review_ratings">
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <i class='bx bxs-star' ></i>
+                                        <span>(5)</span>
+                                    </div>
+
+                                    <div class="review_paragragh">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti enim reiciendis, ipsa culpa minima possimus quasi cumque? Odit omnis voluptatum labore sint odio, quo nisi?</p>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Description & Review Section end -->
+
 
 <!-- step section start -->
 <section class="step_section">
@@ -142,7 +213,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -225,7 +296,7 @@
                             <div class="service_count">
                                 <span>01</span>
                             </div>
-        
+
                             <div class="service_process_content">
                                 <h3>Select The Service</h3>
                                 <p>pick the service you are looking for - from the website or the app.</p>
@@ -237,7 +308,7 @@
                             <div class="service_count">
                                 <span>02</span>
                             </div>
-        
+
                             <div class="service_process_content">
                                 <h3>Pick Your Schedule</h3>
                                 <p>pick the service you are looking for - from the website or the app.</p>
@@ -249,7 +320,7 @@
                             <div class="service_count">
                                 <span>03</span>
                             </div>
-        
+
                             <div class="service_process_content">
                                 <h3>Select The Service</h3>
                                 <p>pick the service you are looking for - from the website or the app.</p>
@@ -337,5 +408,32 @@
 
 
 @push('script-tag')
+   <script>
+        let shuffle_list = document.querySelectorAll('.shuffle_tab_menu ul li');
+        let shuffle_content = document.querySelectorAll('.shuffle_content');
 
+        shuffle_list.forEach((item, index) =>{
+            item.addEventListener("click", function(){
+                    // console.log(item, index)
+                item.classList.add('shuffle_active');
+
+                shuffle_list.forEach((item2, i) => {
+                    if( i!= index){
+                        item2.classList.remove('shuffle_active');
+                    }
+                })
+
+
+                shuffle_content.forEach((content, i) =>{
+                    if( i!= index){
+                        content.classList.remove('content_active');
+                    }
+                    else{
+                        content.classList.add('content_active');
+                    }
+                })
+            })
+        })
+
+   </script>
 @endpush

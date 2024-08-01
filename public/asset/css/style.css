@@ -1293,7 +1293,7 @@ footer{
 }
 
 .step_section{
-    
+
 }
 .step_details{
     background-color: #F2F5F8;
@@ -1342,7 +1342,7 @@ footer{
     box-shadow: 0px 0px 10px rgba(36, 18, 105, 0.25);
 }
 .step_count_details{
-    
+
 }
 .step_count_details h3{
     color: #241269;
@@ -1366,7 +1366,7 @@ footer{
     margin-bottom: 60px;
 }
 .service_list_procedure{
-    
+
 }
 .service_list_procedure li{
     position: relative;
@@ -1410,7 +1410,7 @@ footer{
 }
 
 .service_process_content{
-    
+
 }
 .service_process_content h3{
     color: #333;
@@ -1426,4 +1426,93 @@ footer{
     text-align: left;
     width: 100%;
     margin: 0;
+}
+
+
+
+.desc_review_section{
+    padding: 6rem 0;
+}
+.shuffle_tab_menu{
+    border-bottom: 2px solid #f3f3f3;
+    padding-bottom: 14px;
+    margin-bottom: 24px;
+}
+.shuffle_tab_menu ul{
+
+}
+.shuffle_tab_menu ul li{
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    color: #1a1a1a;
+    font-weight: 600;
+    margin-right: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.shuffle_tab_menu ul li::before{
+    position: absolute;
+    content: "";
+    bottom: -15px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a1a1a;
+    transition: all 0.3s ease-in-out;
+}
+.shuffle_tab_menu ul li.shuffle_active::before{
+    width: 100%;
+}
+.shuffle_tab_menu ul li:hover::before{
+    width: 100%;
+}
+
+.main-menu-body-content{
+
+}
+.shuffle_content{
+     display: none;
+}
+.shuffle_content.content_active{
+    display: block;
+}
+
+.review_section{
+
+}
+.review_section h3{
+    margin-bottom: 80px;
+}
+.review_details{
+    width: 50%;
+    border-bottom: 1px solid #f3f3f3;
+    margin-bottom: 28px;
+}
+.review_details .review_paragragh p{
+    color: #9d9d9d;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 28px;
+}
+.review_details .review_titles{
+   display: flex;
+   align-items: center;
+   margin-bottom: 12px;
+}
+.review_titles h4{
+    color: #212529f0;
+    font-size: 18px;
+    margin-right: 16px;
+}
+.review_titles p{
+    color: #A4A2AE;
+    font-size: 14px;
+}
+.review_ratings{
+    margin-bottom: 8px;
+}
+.review_ratings i{
+    margin: 0 -2px;
+    color: #FF9600;
 }
