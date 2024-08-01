@@ -10,6 +10,6 @@ class PricePlan extends Model
     use HasFactory;
 
     static public function getData(){
-        return self::where('status', '1')->get();
+        return self::where('status', '1')->take(3)->get();
     }
 }

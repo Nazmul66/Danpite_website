@@ -2,15 +2,21 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Service;
+use App\Models\PricePlan;
+use App\Models\Project;
 
 
 Route::get('/', function () {
     return view('frontend.pages.home');
 });
 
-Route::get('/details', function () {
-    return view('frontend.pages.details');
-});
+Route::get('/details/{id}', function ($id) {
+    $service_detail          = Service::where('id', $id)->first();
+    $pricePlan_details       = PricePlan::where('service_id', $id)->get();
+    $project_details         = Project::where('service_id', $id)->get();
+    return view('frontend.pages.details', compact('id','service_detail', 'pricePlan_details', 'project_details'));
+})->name('service.details');
 
 
 // Route::get('/dashboard', function () {

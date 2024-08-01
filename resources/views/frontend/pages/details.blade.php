@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="banner_content_details">Related Banner</div>
+                <div class="banner_content_details">{{ $service_detail->title }}</div>
             </div>
         </div>
     </div>
@@ -41,64 +41,106 @@
 <!-- Service Details Section end-->
 
 
-<!-- service section start -->
-<section class="service-section" id="service">
+<!-- Materials Section start-->
+<section class="material_section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="service-container">
-                    <h1>See Our Services</h1>
+                <div class="price_head">
+                    <h1>Our Metarials</h1>
+                </div>
+            </div>
 
-                    <div class="service-list">
-                        @foreach ($services as $service)
-                            <div class="service-details" data-aos="fade-right" data-aos-duration="1500">
-                                <img src="{{ asset( $service->service_img ) }}" alt="">
+            <div class="col-lg-4">
+                <div class="materials_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our Materials</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
+                </div>
+            </div>
 
-                                <div class="service-content">
-                                    <h2>{{ $service->title }}</h2>
-                                    <div class="star-ratings">
-                                        @if ( $service->ratings == 2 )
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                        @elseif( $service->ratings == 3 )
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                        @elseif( $service->ratings == 4 )
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                        @elseif( $service->ratings == 5 )
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                          <i class='bx bxs-star' ></i>
-                                        @endif
-                                    </div>
+            <div class="col-lg-4">
+                <div class="materials_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our Materials</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
+                </div>
+            </div>
 
-                                    <div class="action-service">
-                                        <a href=""><span>Read More</span>
-                                            <i class='bx bx-right-arrow-alt'></i>
-                                        </a>
-
-                                        <a href="tel:{{ $service->whatsapp }}">
-                                            <button class="chat-btn">Chat Now</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+            <div class="col-lg-4">
+                <div class="materials_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our Materials</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- service section end -->
+<!-- Materials Section start-->
+
+
+<!-- Projects section start  -->
+<section class="project-section" id="project">
+    <div class="container">
+        <div class="row">
+            <div class="project-headtitle">
+               <h1>Awesome Project Could Inspire You</h1>
+               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem atque nostrum quos. In, voluptatum maiores? In fugiat laboriosam odit qui harum molestiae possimus quod aut!</p>
+
+               <div class="project-galary" data-aos="zoom-in" data-aos-duration="1500">
+                  @foreach ($project_details as $project)
+                      <a href="{{ $project->url }}"><img src="{{ asset($project->project_img) }}" alt="{{ $project->name }}"></a>
+                  @endforeach
+               </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- Projects section end -->
+
 
 <!-- Description & Review Section start -->
+
+
+<!-- Procedure Section start-->
+<section class="procedure_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="price_head">
+                    <h1>Our Procedure</h1>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="procedure_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our procedure</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="procedure_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our procedure</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="materials_details">
+                    <img src="{{ asset('public/asset/images/project1.jpg') }}" alt="">
+                    <h2>Our procedure</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam eos similique ullam ducimus dicta eum corporis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Procedure Section start-->
+
 <section class="desc_review_section">
     <div class="container">
         <div class="row">
@@ -233,12 +275,12 @@
         </div>
 
         <div class="row">
-            @foreach ($pricePlans as $pricePlan)
+            @foreach ($pricePlan_details as $pricePlan)
 
-               @if ( $pricePlans->count() === 1 )
+               @if ( $pricePlan_details->count() === 1 )
                   <div class="col-lg-6 offset-lg-3" data-aos="zoom-out-right" data-aos-duration="1500">
 
-               @elseif( $pricePlans->count() === 2 )
+               @elseif( $pricePlan_details->count() === 2 )
                   <div class="col-lg-6" data-aos="zoom-out-right" data-aos-duration="1500">
 
                @else
@@ -379,7 +421,7 @@
                               <select class="form-select form-select-lg mb-3" name="service">
                                   <option selected>Open this select menu</option>
                                   @foreach ($services as $service)
-                                     <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                     <option value="{{ $service->id }}" @if( $service->id == $id ) selected @endif>{{ $service->title }}</option>
                                   @endforeach
                               </select>
                           </div>
@@ -408,6 +450,11 @@
 
 
 @push('script-tag')
+
+    <script>
+        AOS.init();
+    </script>
+
    <script>
         let shuffle_list = document.querySelectorAll('.shuffle_tab_menu ul li');
         let shuffle_content = document.querySelectorAll('.shuffle_content');

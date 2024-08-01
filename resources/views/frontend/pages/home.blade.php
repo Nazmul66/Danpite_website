@@ -196,7 +196,7 @@
                                     </div>
 
                                     <div class="action-service">
-                                        <a href=""><span>Read More</span>
+                                        <a href="{{ route('service.details', $service->id) }}"><span>Read More</span>
                                             <i class='bx bx-right-arrow-alt'></i>
                                         </a>
 

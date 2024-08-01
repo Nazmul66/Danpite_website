@@ -1269,10 +1269,10 @@ footer{
     margin-top: 92px;
 }
 .banner_content_details{
-    width: 100%;
-    font-size: 64px;
-    font-weight: 600;
-    line-height: 78px;
+    width: 50%;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 70px;
     margin-bottom: 28px;
 }
 
@@ -1516,3 +1516,28 @@ footer{
     margin: 0 -2px;
     color: #FF9600;
 }
+
+.material_section,
+.procedure_section{
+   padding: 6rem 0;
+}
+.materials_details{
+
+}
+.materials_details img,
+.procedure_details img{
+   width: 100%;
+}
+.materials_details h2,
+.procedure_details h2{
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+.materials_details p,
+.procedure_details p{
+    color: #9d9d9d;
+}
+

@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
             $basicInfo = BasicInfo::getData();
             $logos = Logo::getData();
             $reviews = Review::getData();
-            
+
 
             $view->with([
                 'banner' => $banner,
